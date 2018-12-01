@@ -6,7 +6,6 @@ import Jogador.Jogador;
 public class Partida extends TerrenoEspecial {
 
 	public void ativarEfeito(Jogador jogador) {
-
+		jogador.getConta().depositar(200);
 	}
-
 }

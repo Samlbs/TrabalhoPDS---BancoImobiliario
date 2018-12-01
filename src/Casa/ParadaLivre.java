@@ -5,8 +5,6 @@ import Jogador.Jogador;
 
 public class ParadaLivre extends TerrenoEspecial {
 
-	public void ativarEfeito(Jogador jogador) {
-
-	}
+	public void ativarEfeito(Jogador jogador) {}
 
 }

@@ -6,7 +6,7 @@ import Jogador.Jogador;
 public class ImpostoDeRenda extends TerrenoEspecial {
 
 	public void ativarEfeito(Jogador jogador) {
-
+		jogador.getConta().sacar(200);
 	}
 
 }
