@@ -1,11 +1,24 @@
 package Jogo;
 
+import Repositorios.RepositorioJogador;
 import Verificadores.VerificaRegrasInsereJogador;
+import View.DesenhaComponenteGrafico;
 
 public class InsereJogador implements VerificaRegrasInsereJogador {
 
-	public void inserirJogador() {
-
+	private DesenhaComponenteGrafico desenha;
+	private RepositorioJogador repositorio;
+	
+	public InsereJogador() {
+		this.desenha = new DesenhaComponenteGrafico();
+		this.repositorio = RepositorioJogador.getInstance();
+	}
+	
+	public void inserirQtdJogadores() {
+		int qtdJogadores = desenha.telaInserirQtdJogador();
+		for(int i = 0; i < qtdJogadores; i++) {
+			RepositorioJogador.getInstance().adicionarJogador(i + 1);
+		}
 	}
 
 

@@ -6,8 +6,7 @@ import Casa.TerrenoComercializavel.TerrenoComercializavel;
 
 public class Jogador {
 
-	private int id;
-	private String nome;
+	private static int id;
 	private int posicaoAtual;
 	private ContaBancaria conta;
 	private List<TerrenoComercializavel> propriedades;
@@ -15,11 +14,10 @@ public class Jogador {
 	
 	
 	
-	public Jogador(int id, String nome, int posicaoAtual, ContaBancaria conta, Peca pecaJogador) {
+	public Jogador(ContaBancaria conta, Peca pecaJogador) {
 		super();
-		this.id = id;
-		this.nome = nome;
-		this.posicaoAtual = posicaoAtual;
+		this.id = id + 1;
+		this.posicaoAtual = 1;
 		this.conta = conta;
 		this.pecaJogador = pecaJogador;
 		this.propriedades = new ArrayList<>();
@@ -43,10 +41,6 @@ public class Jogador {
 
 	public int getId() {
 		return this.id;
-	}
-
-	public String getNome() {
-		return this.nome;
 	}
 
 	public double getSaldoBancario() {
