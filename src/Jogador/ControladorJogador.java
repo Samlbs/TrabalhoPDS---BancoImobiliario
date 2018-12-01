@@ -5,7 +5,11 @@ import Casa.TerrenoComercializavel.TerrenoComercializavel;
 import java.util.List;
 
 public class ControladorJogador implements VerificaRegrasJogador {
-
+	
+	public ControladorJogador() {
+		super();
+	}
+	
 	public boolean verificaSaldoJogador(Jogador jogador) {
 		return false;
 	}
@@ -20,46 +24,6 @@ public class ControladorJogador implements VerificaRegrasJogador {
 
 	public boolean verificaSaldoParaCompra(Jogador jogador, TerrenoComercializavel terreno) {
 		return false;
-	}
-
-	public void comprar(TerrenoComercializavel terreno) {
-
-	}
-
-	public void pagarTaxa(double taxa) {
-
-	}
-
-	public void receberTaxa(double taxa) {
-
-	}
-
-	public void addMinhaPropriedade(TerrenoComercializavel terreno) {
-
-	}
-
-	public int getId() {
-		return 0;
-	}
-
-	public String getName() {
-		return null;
-	}
-
-	public double getSaldoBancario() {
-		return 0;
-	}
-
-	public int getPosicaoAtual() {
-		return 0;
-	}
-
-	public void setPosicaoAtual(int posicao) {
-
-	}
-
-	public List<TerrenoComercializavel> getMinhasPropriedades() {
-		return null;
 	}
 
 }

@@ -11,5 +11,9 @@ public class ControladorJogo {
 	private ControladorCasa controlCasa;
 
 	private ControladorDado controlDado;
+	
+	public void iniciarJogo() {
+		Tabuleiro tabuleiro = new Tabuleiro();
+	}
 
 }

@@ -1,15 +1,15 @@
 package Dados;
 
+import java.util.Random;
+
 public class Dado {
 
-	private int valorDado;
-
-	public int randomDado() {
-		return 0;
+	public Dado() {
+		super();
 	}
 
-	public int getValorDado() {
-		return 0;
+	public int lancar() {
+		Random rand = new Random();
+		return rand.nextInt(6) + 1;
 	}
-
 }
