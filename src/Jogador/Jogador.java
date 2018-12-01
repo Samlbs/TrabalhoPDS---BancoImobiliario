@@ -3,6 +3,7 @@ package Jogador;
 import java.util.ArrayList;
 import java.util.List;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
+import jplay.URL;
 
 public class Jogador {
 
@@ -14,12 +15,12 @@ public class Jogador {
 	
 	
 	
-	public Jogador(ContaBancaria conta, Peca pecaJogador) {
+	public Jogador(ContaBancaria conta) {
 		super();
 		this.id = id + 1;
 		this.posicaoAtual = 1;
 		this.conta = conta;
-		this.pecaJogador = pecaJogador;
+		this.pecaJogador = new Peca(640, 0, id);
 		this.propriedades = new ArrayList<>();
 	}
 
@@ -38,9 +39,9 @@ public class Jogador {
 	public void addMinhaPropriedade(TerrenoComercializavel terreno) {
 		this.propriedades.add(terreno);
 	}
-
-	public int getId() {
-		return this.id;
+	
+	public static int getId() {
+		return id;
 	}
 
 	public double getSaldoBancario() {
@@ -53,6 +54,10 @@ public class Jogador {
 	
 	public int getPosicaoAtual() {
 		return this.posicaoAtual;
+	}
+
+	public Peca getPecaJogador() {
+		return pecaJogador;
 	}
 
 	public void setPosicaoAtual(int posicao) {

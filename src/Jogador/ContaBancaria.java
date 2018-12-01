@@ -3,6 +3,10 @@ package Jogador;
 public class ContaBancaria {
 
 	private double saldo;
+	
+	public ContaBancaria() {
+		
+	}
 
 	public void depositar(double valor) {
 		if(valor>0) {

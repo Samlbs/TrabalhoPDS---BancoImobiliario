@@ -1,17 +1,19 @@
 package Repositorios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Jogador.ContaBancaria;
 import Jogador.Jogador;
 import Jogador.Peca;
+import jplay.URL;
 
 public class RepositorioJogador {
 
 	private static RepositorioJogador instance = null;
-	private List<Jogador> jogadores;
-	private List<Jogador> jogadoresJogando;
-	private List<Jogador> jogadoresPresos;
+	private List<Jogador> jogadores = new ArrayList<>();
+	private List<Jogador> jogadoresJogando = new ArrayList<>();
+	private List<Jogador> jogadoresPresos =  new ArrayList<>();
 	
 	private RepositorioJogador() {
 		
@@ -37,8 +39,8 @@ public class RepositorioJogador {
 	public void adicionarJogador(int id) {
 		ContaBancaria conta = new ContaBancaria();
 		conta.depositar(2458);
-		Peca pecaJogador = new Peca();
-		Jogador jogador = new Jogador(conta, pecaJogador);
-		
+		Jogador jogador = new Jogador(conta);
+		jogadores.add(jogador);
+		//System.out.println(jogador.getPecaJogador().getId());
 	}
 }
