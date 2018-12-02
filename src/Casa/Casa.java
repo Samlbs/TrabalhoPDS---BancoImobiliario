@@ -10,6 +10,13 @@ public abstract class Casa implements IEfeitoCasa {
 	private int posicao;
 	private int id;
 
+	public Casa(String nome, int posicao, int id) {
+		super();
+		this.nome = nome;
+		this.posicao = posicao;
+		this.id = id;
+	}
+
 	public int getId() {
 		return this.id;
 	}

@@ -8,8 +8,8 @@ public class Tabuleiro {
 
 	private List<Casa> casasTabuleiro;
 
-	public void criarCasa() {
-
+	public void inicializarCasas(Casa casa) {
+		casasTabuleiro.add(casa);
 	}
 
 }

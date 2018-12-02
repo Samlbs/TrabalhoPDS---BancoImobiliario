@@ -12,6 +12,11 @@ public class SorteReves extends TerrenoEspecial{
 
 	private List<Carta> cartas = new ArrayList<>();
 	private IteratorCarta iterador = new IteratorSorteReves(cartas);
+	
+	public SorteReves(String nome, int posicao, int id) {
+		super(nome, posicao, id);
+		// TODO Auto-generated constructor stub
+	}
 
 	public void ativarEfeito(Jogador jogador) {
 		iterador.pegaCarta().ativarEfeito(jogador);

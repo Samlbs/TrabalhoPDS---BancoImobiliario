@@ -1,38 +1,34 @@
 package Casa.TerrenoComercializavel;
 
+import java.util.List;
+
 import Casa.Casa;
 import Jogador.Jogador;
 
-public class TerrenoComercializavel extends Casa {
+public abstract class TerrenoComercializavel extends Casa {
 
 	private double valor;
-
-	private double taxa;
-
 	private Jogador proprietario;
-
-	public void ativarEfeito(Jogador jogador) {
-
+	
+	public TerrenoComercializavel(String nome, int posicao, int id, double valor) {
+		super(nome, posicao, id);
+		// TODO Auto-generated constructor stub
+		this.valor = valor;
 	}
 
-	public void setProprietario(Jogador jogador) {
+	public void ativarEfeito(Jogador jogador) {}
+	public void ativarEfeitoCompanhia(Jogador jogador, int valorDados) {}
 
+	public void setProprietario(Jogador jogador) {
+		this.proprietario = jogador;
 	}
 
 	public Jogador getProprietario() {
-		return null;
-	}
-
-	public double getTaxa() {
-		return 0;
-	}
-
-	public void setTaxa(double taxa) {
-
+		return this.proprietario;
 	}
 
 	public double getValor() {
-		return 0;
+		return valor;
 	}
 
 }
