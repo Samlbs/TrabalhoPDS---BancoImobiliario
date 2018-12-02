@@ -1,6 +1,5 @@
 package Jogo;
 
-import Jogador.ControladorJogador;
 import Jogador.Jogador;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
@@ -17,15 +16,16 @@ public class ControladorJogo {
 	
 	public ControladorJogo() {
 		this.componenteGrafico = new DesenhaComponenteGrafico();
-		componenteGrafico.desenhaTabuleiro();
+		componenteGrafico.lobby();
 		this.insereJogador = new InsereJogador();
-		insereJogadores();
-		jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(0);
-		componenteGrafico.desenhaPecasNoTabuleiroInicio();
-		componenteGrafico.atualizaTabuleiro();
+		iniciarJogo();
 	}
 	
 	public void iniciarJogo() {
+		insereJogadores();
+		componenteGrafico.desenhaTabuleiro(RepositorioJogador.getInstance().getJogadores());
+		jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(0);
+		componenteGrafico.desenhaPecasNoTabuleiroInicio();
 		Tabuleiro tabuleiro = new Tabuleiro();
 	}
 	

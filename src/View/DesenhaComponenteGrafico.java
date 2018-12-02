@@ -1,29 +1,45 @@
 package View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import Jogador.Jogador;
 import Repositorios.RepositorioJogador;
+import jplay.GameImage;
+import jplay.Keyboard;
 import jplay.Scene;
 import jplay.URL;
 import jplay.Window;
+import recursos.cenarios.Cenario1;
 
 public class DesenhaComponenteGrafico {
 	private Window window;
-	private Scene scene;
+	private Keyboard teclado;
+	private Cenario1 cenario;
 	
 	public DesenhaComponenteGrafico() {
 		
 	}
 	
-	public void desenhaTabuleiro() {
+	public void lobby() {
 		this.window = new Window(704, 704);
-		//GameImage back = new GameImage("src//recursos//sprite//back.png");
-		//back.draw();
-		scene = new Scene();
-		scene.loadFromFile(URL.scenario("cenario.scn"));
-		scene.draw();
-		window.update();
+		GameImage back = new GameImage("src//recursos//sprites//back.png");
+		teclado = window.getKeyboard();
+		boolean sair = false;
+		while(!sair) {
+			back.draw();
+			window.update();
+			if(teclado.keyDown(Keyboard.ENTER_KEY)) {
+				sair = true;
+				break;
+			}
+		}
+	}
+	
+	public void desenhaTabuleiro(List<Jogador> jogadores) {
+		cenario = new Cenario1(window, jogadores);
 	}
 	
 	public int telaInserirQtdJogador() {
@@ -36,16 +52,16 @@ public class DesenhaComponenteGrafico {
 	
 	public void desenhaPecasNoTabuleiroInicio() {
 		for(Jogador j: RepositorioJogador.getInstance().getJogadores()) {
-			//System.out.println(j.getPecaJogador());
-			scene.addOverlay(j.getPecaJogador());
+			System.out.println(j.getPecaJogador());
+			cenario.getScene().addOverlay(j.getPecaJogador());
 		}
 		
 	}
 	
 	public void atualizaTabuleiro() {
-		scene.draw();
+//		scene.draw();
 //		desenhaBotaoDados();
 //		desenhaBotaoPortifolio();
-		window.update();
+//		window.update();
 	}
 }

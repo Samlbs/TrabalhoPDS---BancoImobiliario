@@ -7,11 +7,9 @@ import View.DesenhaComponenteGrafico;
 public class InsereJogador implements VerificaRegrasInsereJogador {
 
 	private DesenhaComponenteGrafico desenha;
-	private RepositorioJogador repositorio;
 	
 	public InsereJogador() {
 		this.desenha = new DesenhaComponenteGrafico();
-		this.repositorio = RepositorioJogador.getInstance();
 	}
 	
 	public void inserirQtdJogadores() {

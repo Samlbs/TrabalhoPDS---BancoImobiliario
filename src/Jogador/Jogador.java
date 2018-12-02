@@ -3,7 +3,6 @@ package Jogador;
 import java.util.ArrayList;
 import java.util.List;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
-import jplay.URL;
 
 public class Jogador {
 
