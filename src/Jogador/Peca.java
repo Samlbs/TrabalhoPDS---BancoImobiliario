@@ -4,10 +4,16 @@ import jplay.Sprite;
 import jplay.URL;
 
 public class Peca extends Sprite{
+	private String cor;
 
 	public Peca(int x, int y, int id) {
 		super(URL.sprite("peca"+id+".png"), 1);
-		//System.out.println("src//recursos//sprite//peca"+id+".png");
+		if(id == 1) this.cor = "vermelho";
+		else if(id == 2) this.cor = "amarelo";
+		else if(id == 3) this.cor = "verde";
+		else if(id == 4) this.cor = "azul";
+		else if(id == 5) this.cor = "rosa";
+		else this.cor = "cinza";
 		this.x = x;
 		this.y = y;
 	}
@@ -16,5 +22,8 @@ public class Peca extends Sprite{
 		moveTo(x, y, 0.3);
 	}
 
+	public String getCor() {
+		return this.cor;
+	}
 	
 }

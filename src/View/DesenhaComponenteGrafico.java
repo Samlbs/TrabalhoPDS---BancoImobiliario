@@ -1,16 +1,12 @@
 package View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import Jogador.Jogador;
-import Repositorios.RepositorioJogador;
 import jplay.GameImage;
 import jplay.Keyboard;
-import jplay.Scene;
-import jplay.URL;
 import jplay.Window;
 import recursos.cenarios.Cenario1;
 
@@ -46,22 +42,18 @@ public class DesenhaComponenteGrafico {
 		Object[] opcoes = {2, 3, 4, 5, 6};
 		Object res = JOptionPane.showInputDialog(null, "Escolha a quantidade de jogadores" , "Selecao de itens" ,
 						JOptionPane.PLAIN_MESSAGE , null ,opcoes,"");
-//		System.out.println((int) res);
 		return (Integer) res;
 	}
 	
 	public void desenhaPecasNoTabuleiroInicio() {
-		for(Jogador j: RepositorioJogador.getInstance().getJogadores()) {
-			System.out.println(j.getPecaJogador());
-			cenario.getScene().addOverlay(j.getPecaJogador());
-		}
-		
+		cenario.run();
 	}
 	
-	public void atualizaTabuleiro() {
-//		scene.draw();
-//		desenhaBotaoDados();
-//		desenhaBotaoPortifolio();
-//		window.update();
+	public void mensagemInicial(List<Jogador> jogadores) {
+		String mensagemInicial = "";
+		for(Jogador j: jogadores) {
+			mensagemInicial = mensagemInicial + "Jogador"+j.getId()+" é a peca de cor "+j.getPecaJogador().getCor()+"\n";
+		}
+		JOptionPane.showMessageDialog(null, mensagemInicial, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 }

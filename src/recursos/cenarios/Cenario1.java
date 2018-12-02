@@ -17,18 +17,18 @@ public class Cenario1 {
 		scene = new Scene();
 		scene.loadFromFile(URL.scenario("cenario.scn"));
 		this.jogadores = jogadores;
-		run();
+		scene.draw();
+		window.update();
+		//run();
 	}
 	
-	private void run() {
-		//while(true) {
-			scene.draw();
-			for(Jogador j: jogadores) {
-				j.getPecaJogador().draw();
-				j.getPecaJogador().update();
-			}
-			window.update();
-		//}
+	public void run() {
+		scene.draw();
+		for(Jogador j: jogadores) {
+			j.getPecaJogador().draw();
+			j.getPecaJogador().update();
+		}
+		window.update();
 	}
 
 	public Window getWindow() {

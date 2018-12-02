@@ -6,7 +6,8 @@ import Casa.TerrenoComercializavel.TerrenoComercializavel;
 
 public class Jogador {
 
-	private static int id;
+	private static int identificador;
+	private int id;
 	private int posicaoAtual;
 	private ContaBancaria conta;
 	private List<TerrenoComercializavel> propriedades;
@@ -16,7 +17,8 @@ public class Jogador {
 	
 	public Jogador(ContaBancaria conta) {
 		super();
-		this.id = id + 1;
+		this.id = identificador + 1;
+		identificador++;
 		this.posicaoAtual = 1;
 		this.conta = conta;
 		this.pecaJogador = new Peca(640, 0, id);
@@ -39,7 +41,7 @@ public class Jogador {
 		this.propriedades.add(terreno);
 	}
 	
-	public static int getId() {
+	public int getId() {
 		return id;
 	}
 

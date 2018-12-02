@@ -26,7 +26,11 @@ public class ControladorJogo {
 		componenteGrafico.desenhaTabuleiro(RepositorioJogador.getInstance().getJogadores());
 		jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(0);
 		componenteGrafico.desenhaPecasNoTabuleiroInicio();
+		componenteGrafico.mensagemInicial(RepositorioJogador.getInstance().getJogadores());
 		Tabuleiro tabuleiro = new Tabuleiro();
+		while(true) {
+			
+		}
 	}
 	
 	public void insereJogadores() {
