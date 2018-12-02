@@ -2,14 +2,35 @@ package Dados;
 
 import java.util.Random;
 
-public class Dado {
+import jplay.Sprite;
+import jplay.URL;
 
-	public Dado() {
-		super();
+public class Dado extends Sprite{
+
+	private int valor;
+
+	public Dado(int x, int y) {
+		super(URL.sprite("face6.png"), 1);
+		this.valor = 1;
+		this.x = x;
+		this.y = y;
 	}
 
-	public int lancar() {
+	public void lancar() {
 		Random rand = new Random();
-		return rand.nextInt(6) + 1;
+		this.valor = rand.nextInt(6) + 1;
+	}
+	
+	public void mudarFace() {
+		String face = "face"+getValor()+".png";
+		this.loadImage(URL.sprite(face));
+	}
+
+	public int getValor() {
+		return valor;
+	}
+
+	public void setValor(int valor) {
+		this.valor = valor;
 	}
 }

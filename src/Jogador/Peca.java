@@ -26,4 +26,9 @@ public class Peca extends Sprite{
 		return this.cor;
 	}
 	
+	public void setPosition(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
 }

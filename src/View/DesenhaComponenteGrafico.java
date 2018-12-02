@@ -7,20 +7,23 @@ import javax.swing.JOptionPane;
 import Jogador.Jogador;
 import jplay.GameImage;
 import jplay.Keyboard;
+import jplay.Scene;
+import jplay.URL;
 import jplay.Window;
 import recursos.cenarios.Cenario1;
 
 public class DesenhaComponenteGrafico {
 	private Window window;
+	private Scene scene;
 	private Keyboard teclado;
 	private Cenario1 cenario;
-	
 	public DesenhaComponenteGrafico() {
 		
 	}
 	
 	public void lobby() {
 		this.window = new Window(704, 704);
+		scene = new Scene();
 		GameImage back = new GameImage("src//recursos//sprites//back.png");
 		teclado = window.getKeyboard();
 		boolean sair = false;
@@ -35,7 +38,7 @@ public class DesenhaComponenteGrafico {
 	}
 	
 	public void desenhaTabuleiro(List<Jogador> jogadores) {
-		cenario = new Cenario1(window, jogadores);
+		cenario = new Cenario1(window, jogadores, scene, teclado);
 	}
 	
 	public int telaInserirQtdJogador() {
@@ -55,5 +58,15 @@ public class DesenhaComponenteGrafico {
 			mensagemInicial = mensagemInicial + "Jogador"+j.getId()+" é a peca de cor "+j.getPecaJogador().getCor()+"\n";
 		}
 		JOptionPane.showMessageDialog(null, mensagemInicial, null, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	
+	
+	public Keyboard getTeclado() {
+		return this.teclado;
+	}
+	
+	public Cenario1 getCenario() {
+		return this.cenario;
 	}
 }

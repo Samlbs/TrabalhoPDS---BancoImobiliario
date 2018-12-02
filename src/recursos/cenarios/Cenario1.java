@@ -2,7 +2,10 @@ package recursos.cenarios;
 
 import java.util.List;
 
+import Dados.Dado;
 import Jogador.Jogador;
+import jplay.Animation;
+import jplay.Keyboard;
 import jplay.Scene;
 import jplay.URL;
 import jplay.Window;
@@ -11,19 +14,32 @@ public class Cenario1 {
 	private Window window;
 	private Scene scene;
 	private List<Jogador> jogadores;
+	private Keyboard teclado;
+	private Dado dado1;
+	private Dado dado2;
+	private Animation faixaJogadorDaVez;
 	
-	public Cenario1(Window window, List<Jogador> jogadores) {
+	public Cenario1(Window window, List<Jogador> jogadores, Scene scene, Keyboard teclado) {
 		this.window = window;
-		scene = new Scene();
-		scene.loadFromFile(URL.scenario("cenario.scn"));
+		this.teclado = teclado;
+		this.scene = scene;
+		this.scene.loadFromFile(URL.scenario("cenario.scn"));
 		this.jogadores = jogadores;
-		scene.draw();
+		this.dado1 = new Dado(500, 128);
+		this.dado2 = new Dado(555, 128);
+		this.faixaJogadorDaVez = new Animation(URL.sprite("faixa1.png"));
+		this.faixaJogadorDaVez.x = 222;
+		this.faixaJogadorDaVez.y = 252;
+		this.scene.draw();
 		window.update();
-		//run();
+		
 	}
 	
 	public void run() {
 		scene.draw();
+		desenhaDados();
+		faixaJogadorDaVez.draw();
+		faixaJogadorDaVez.update();
 		for(Jogador j: jogadores) {
 			j.getPecaJogador().draw();
 			j.getPecaJogador().update();
@@ -31,6 +47,13 @@ public class Cenario1 {
 		window.update();
 	}
 
+	public void desenhaDados() {
+		this.dado1.draw();
+		this.dado1.update();
+		this.dado2.draw();
+		this.dado2.update();
+	}
+	
 	public Window getWindow() {
 		return window;
 	}
@@ -47,5 +70,11 @@ public class Cenario1 {
 		this.scene = scene;
 	}
 	
+	public Dado getDado1() {
+		return this.dado1;
+	}
 	
+	public Dado getDado2() {
+		return this.dado2;
+	}
 }

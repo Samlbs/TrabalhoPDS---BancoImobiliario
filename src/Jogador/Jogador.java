@@ -2,6 +2,9 @@ package Jogador;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Casa.Casa;
+import Casa.TerrenoComercializavel.Imovel;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
 
 public class Jogador {
@@ -61,8 +64,106 @@ public class Jogador {
 		return pecaJogador;
 	}
 
-	public void setPosicaoAtual(int posicao) {
+	public void setPosicaoAtual(int posicao, int x, int y) {
 		this.posicaoAtual = posicao;
+		this.getPecaJogador().x = x;
+		this.getPecaJogador().y = y;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesRoxas(){
+		List<TerrenoComercializavel> roxo = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Roxo")) {
+					roxo.add(imovel);
+				}
+			}
+		}
+		return roxo;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesAzuis(){
+		List<TerrenoComercializavel> azuis = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Azul")) {
+					azuis.add(imovel);
+				}
+			}
+		}
+		return azuis;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesLilas(){
+		List<TerrenoComercializavel> lilas = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Lilas")) {
+					lilas.add(imovel);
+				}
+			}
+		}
+		return lilas;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesLaranjas(){
+		List<TerrenoComercializavel> laranjas = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Laranja")) {
+					laranjas.add(imovel);
+				}
+			}
+		}
+		return laranjas;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesRosas(){
+		List<TerrenoComercializavel> rosas = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Rosa")) {
+					rosas.add(imovel);
+				}
+			}
+		}
+		return rosas;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesAmarelas(){
+		List<TerrenoComercializavel> amarelas = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Amarelo")) {
+					amarelas.add(imovel);
+				}
+			}
+		}
+		return amarelas;
+	}	
+	
+	public List<TerrenoComercializavel> getPropriedadesVerdes(){
+		List<TerrenoComercializavel> verdes = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Verde")) {
+					verdes.add(imovel);
+				}
+			}
+		}
+		return verdes;
+	}
+	
+	public List<TerrenoComercializavel> getPropriedadesAzuisEscuro(){
+		List<TerrenoComercializavel> azulEscuro = new ArrayList<>();
+		for (TerrenoComercializavel imovel : propriedades) {
+			if (imovel instanceof Imovel) {
+				if (((Imovel) imovel).getCorImovel().equals("Azul Escuro")) {
+					azulEscuro.add(imovel);
+				}
+			}
+		}
+		return azulEscuro;
 	}
 
 	public List<TerrenoComercializavel> getMinhasPropriedades() {
