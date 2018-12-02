@@ -1,4 +1,4 @@
-package IteratorSorteReves;
+package Baralho;
 
 import java.util.List;
 

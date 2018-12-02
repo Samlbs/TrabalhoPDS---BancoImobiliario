@@ -15,7 +15,7 @@ import Casa.TerrenoComercializavel.Companhia;
 import Casa.TerrenoComercializavel.Imovel;
 import Jogo.Tabuleiro;
 
-public class InicializarDados {
+public class InicializarCasasTabuleiro {
 	//lado esquerdo da tela
 	Casa pontoPartida = new Partida("Ponto de Partida", 1, 1, 640, 0);
 	
