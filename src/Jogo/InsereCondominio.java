@@ -10,8 +10,12 @@ public class InsereCondominio implements VerificadorRegraCasa {
 	public void inserirCondominio(Jogador jogador, Imovel imovel) {
 		if (validaRegraConstrucoes(jogador, imovel)) {
 			if (jogador.getMinhasPropriedades().contains(imovel)) {
-				jogador.getConta().sacar(imovel.getValorCondominio());
-				imovel.setCountCondominios(imovel.getCountCondominios() + 1);
+				if (imovel.getCountCondominios() > 5) {
+					jogador.getConta().sacar(imovel.getValorCondominio());
+					imovel.setCountCondominios(imovel.getCountCondominios() + 1);
+				} else {
+					return;
+				}
 			}
 		}
 	}

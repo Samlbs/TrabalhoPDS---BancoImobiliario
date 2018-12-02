@@ -10,20 +10,26 @@ public class Imovel extends TerrenoComercializavel {
 	private String corImovel;
 	private int countCondominios;
 	private double valorCondominio;
-	private List<Double> taxas = new ArrayList<Double>();
+	private double taxas[] = new double[5];
 	
-	public Imovel(String nome, int posicao, int id, int x, int y, double valor, String cor, double valorCondominio, List<Double> taxas) {
+	public Imovel(String nome, int posicao, int id, int x, int y, double valor, String cor, double valorCondominio, 
+			double aluguel0, double aluguel1, double aluguel2, double aluguel3, double aluguel4, double aluguel5) {
 		super(nome, posicao, id, x, y, valor);
 		// TODO Auto-generated constructor stub
 		this.corImovel = cor;
-		this.taxas = taxas;
 		this.valorCondominio = valorCondominio;
+		taxas[0] = aluguel0;
+		taxas[1] = aluguel1;
+		taxas[2] = aluguel2;
+		taxas[3] = aluguel3;
+		taxas[4] = aluguel4;
+		taxas[5] = aluguel5;
 	}
 
 	public void ativarEfeito(Jogador jogador) {
 		if (!this.getProprietario().equals(jogador) && this.getProprietario() != null) {
-			jogador.getConta().sacar(taxas.get(countCondominios));
-			this.getProprietario().getConta().depositar(taxas.get(countCondominios));
+			jogador.getConta().sacar(taxas[countCondominios]);
+			this.getProprietario().getConta().depositar(taxas[countCondominios]);
 		}
 	}
 
@@ -39,7 +45,7 @@ public class Imovel extends TerrenoComercializavel {
 		return valorCondominio;
 	}
 
-	public List<Double> getTaxas() {
+	public double[] getTaxas() {
 		return taxas;
 	}
 
