@@ -1,6 +1,9 @@
 package Casa.TerrenoComercializavel;
 
+import javax.swing.JOptionPane;
+
 import Jogador.Jogador;
+import View.DesenhaComponenteGrafico;
 
 public class Companhia extends TerrenoComercializavel {
 	private double taxaCompanhia;
@@ -17,10 +20,19 @@ public class Companhia extends TerrenoComercializavel {
 
 	@Override
 	public void ativarEfeitoCompanhia(Jogador jogador, int valorDados) {
-		if (!this.getProprietario().equals(jogador) && this.getProprietario() != null) {
-			double taxa = this.getTaxaCompanhia() * valorDados;
-			jogador.getConta().sacar(taxa);
-			this.getProprietario().getConta().depositar(taxa);
+		DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
+		if (this.getProprietario() == null) {
+			int resposta = painel.mensagemConfirmacaoCompra();
+			//System.out.println(jogador.getConta().getSaldo());
+			if(resposta == JOptionPane.YES_OPTION) {
+				jogador.comprar(this);
+				//System.out.println(jogador.getConta().getSaldo());
+			}
+		}
+		else if (!this.getProprietario().equals(jogador)) {
+			jogador.getConta().sacar(taxaCompanhia * valorDados);
+			painel.mensagemPagarTaxa(taxaCompanhia * valorDados);
+			this.getProprietario().getConta().depositar(taxaCompanhia * valorDados);
 		}
 	}
 }
