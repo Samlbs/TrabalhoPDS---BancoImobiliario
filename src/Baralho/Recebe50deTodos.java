@@ -15,9 +15,10 @@ public class Recebe50deTodos extends Carta{
 	public void ativarEfeito(Jogador jogador) {
 		// TODO Auto-generated method stub
 		for (Jogador player : RepositorioJogador.getInstance().getJogadoresJogando()) {
-			player.getConta().sacar(50);
-			jogador.getConta().depositar(50);
+			if (player != jogador) {
+				player.getConta().sacar(50);
+				jogador.getConta().depositar(50);
+			}
 		}
-		jogador.getConta().depositar(50);
 	}
 }
