@@ -1,6 +1,8 @@
 package Repositorios;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import Casa.Carta;
@@ -14,6 +16,7 @@ public class RepositorioCartas {
 	public static RepositorioCartas getInstance() {
 		if (instance == null) {
 			instance = new RepositorioCartas();
+			Collections.shuffle(baralho);
 		}
 		return instance;
 	}
