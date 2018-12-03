@@ -21,7 +21,7 @@ public class InicializarCasasTabuleiro {
 	public InicializarCasasTabuleiro() {
 		this.casas = RepositorioCasas.getInstance().getTodosTerrenos();
 	}
-	public void inicialize(Tabuleiro tabuleiro) {
+	public void inicialize() {
 		//lado direito da tela
 		Casa pontoPartida = new Partida("Ponto de Partida", 1, 1, 640, 0);
 		casas.add(pontoPartida);

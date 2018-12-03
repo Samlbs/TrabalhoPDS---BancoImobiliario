@@ -5,6 +5,7 @@ import Repositorios.RepositorioCasas;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 import jplay.Keyboard;
+import teste.InicializarCasasTabuleiro;
 
 import java.awt.event.KeyEvent;
 
@@ -20,28 +21,46 @@ public class ControladorJogo {
 	private InsereJogador insereJogador;
 	private Jogador jogadorDaVez;
 	private Keyboard teclado;
+	private int iteraJogador;
 	
 	public ControladorJogo() {
 		this.componenteGrafico = new DesenhaComponenteGrafico();
 		componenteGrafico.lobby();
 		this.insereJogador = new InsereJogador();
+		iteraJogador = 0;
 		iniciarJogo();
 	}
 	
 	public void iniciarJogo() {
+		Tabuleiro tabuleiro = new Tabuleiro(RepositorioCasas.getInstance().getTodosTerrenos());
+		tabuleiro.inicialize();
 		insereJogadores();
 		componenteGrafico.desenhaTabuleiro(RepositorioJogador.getInstance().getJogadores());
-		jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(0);
+		jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
 		componenteGrafico.desenhaPecasNoTabuleiroInicio();
 		componenteGrafico.mensagemInicial(RepositorioJogador.getInstance().getJogadores());
-		Tabuleiro tabuleiro = new Tabuleiro();
+		
 		this.teclado = componenteGrafico.getTeclado();
 		while(true) {
 			if(teclado.keyDown(Keyboard.D_KEY)) {
 				lancarDados();
 				componenteGrafico.getCenario().run();
+				try {
+					Thread.sleep(300);
+				} catch (InterruptedException e) {e.printStackTrace();}
 				moverPecaJogador(componenteGrafico.getCenario().getDado1().getValor()
 						+ componenteGrafico.getCenario().getDado2().getValor());
+				//fazer lógica de efeito, compra ou  pagar
+				if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
+					iteraJogador++;
+					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+				} else {
+					iteraJogador = 0;
+					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+				}
+				trocarFaixaJogador(jogadorDaVez.getId());
+				componenteGrafico.getCenario().run();
+
 			}
 		}
 	}
@@ -65,5 +84,9 @@ public class ControladorJogo {
 		Casa casa = RepositorioCasas.getInstance().getCasaByPosicao(posCasaMover);
 		jogadorDaVez.setPosicaoAtual(posCasaMover, casa.getX(), casa.getY());
 		componenteGrafico.desenhaPecasNoTabuleiroInicio();
+	}
+	
+	public void trocarFaixaJogador(int id) {
+		componenteGrafico.getCenario().setFaixaJogadorDaVez(id);
 	}
 }

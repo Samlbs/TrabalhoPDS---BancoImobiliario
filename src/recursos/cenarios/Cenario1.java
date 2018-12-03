@@ -29,7 +29,7 @@ public class Cenario1 {
 		this.dado2 = new Dado(555, 128);
 		this.faixaJogadorDaVez = new Animation(URL.sprite("faixa1.png"));
 		this.faixaJogadorDaVez.x = 222;
-		this.faixaJogadorDaVez.y = 252;
+		this.faixaJogadorDaVez.y = 230;
 		this.scene.draw();
 		window.update();
 		
@@ -39,7 +39,7 @@ public class Cenario1 {
 		scene.draw();
 		desenhaDados();
 		faixaJogadorDaVez.draw();
-		faixaJogadorDaVez.update();
+		//faixaJogadorDaVez.update();
 		for(Jogador j: jogadores) {
 			j.getPecaJogador().draw();
 			j.getPecaJogador().update();
@@ -76,5 +76,9 @@ public class Cenario1 {
 	
 	public Dado getDado2() {
 		return this.dado2;
+	}
+	
+	public void setFaixaJogadorDaVez(int id) {
+		this.faixaJogadorDaVez.loadImage(URL.sprite("faixa"+id+".png"));
 	}
 }

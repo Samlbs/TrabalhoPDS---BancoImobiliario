@@ -18,10 +18,6 @@ public class Peca extends Sprite{
 		this.y = y;
 	}
 
-	public void moverPara(int x, int y) {
-		moveTo(x, y, 0.3);
-	}
-
 	public String getCor() {
 		return this.cor;
 	}

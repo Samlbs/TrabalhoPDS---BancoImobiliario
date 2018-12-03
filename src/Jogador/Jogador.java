@@ -3,7 +3,6 @@ package Jogador;
 import java.util.ArrayList;
 import java.util.List;
 
-import Casa.Casa;
 import Casa.TerrenoComercializavel.Imovel;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
 

@@ -10,7 +10,7 @@ public class Imovel extends TerrenoComercializavel {
 	private String corImovel;
 	private int countCondominios;
 	private double valorCondominio;
-	private double taxas[] = new double[5];
+	private double taxas[] = new double[6];
 	
 	public Imovel(String nome, int posicao, int id, int x, int y, double valor, String cor, double valorCondominio, 
 			double aluguel0, double aluguel1, double aluguel2, double aluguel3, double aluguel4, double aluguel5) {
