@@ -33,10 +33,8 @@ public class Imovel extends TerrenoComercializavel {
 		DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
 		if (this.getProprietario() == null) {
 			int resposta = painel.mensagemConfirmacaoCompra();
-			//System.out.println(jogador.getConta().getSaldo());
 			if(resposta == JOptionPane.YES_OPTION) {
 				jogador.comprar(this);
-				//System.out.println(jogador.getConta().getSaldo());
 			}
 		}
 		else if (!this.getProprietario().equals(jogador)) {

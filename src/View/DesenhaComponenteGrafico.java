@@ -98,4 +98,8 @@ public class DesenhaComponenteGrafico {
 	public void mensagemRevesVaParaCadeia() {
 		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nREVES va para cadeia", null, JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+	public void mensagemPreso() {
+		JOptionPane.showMessageDialog(null, "Que pena! Você está preso!", null, JOptionPane.INFORMATION_MESSAGE);
+	}
 }

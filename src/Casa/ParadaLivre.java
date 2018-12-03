@@ -10,6 +10,8 @@ public class ParadaLivre extends Casa {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void ativarEfeito(Jogador jogador) {}
+	public void ativarEfeito(Jogador jogador) {
+		
+	}
 
 }
