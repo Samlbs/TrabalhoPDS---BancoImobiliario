@@ -59,16 +59,6 @@ public class ControladorJogo {
 				} catch (InterruptedException e) {e.printStackTrace();}
 				
 				if (RepositorioJogador.getInstance().getJogadoresPresos().contains(jogadorDaVez)) {
-					while (true) {
-						if(teclado.keyDown(Keyboard.D_KEY)) {
-							lancarDados();
-							componenteGrafico.getCenario().run();
-							
-							try {
-								Thread.sleep(300);
-							} catch (InterruptedException e) {
-								e.printStackTrace();}
-							}
 						if (componenteGrafico.getCenario().getDado1().getValor() == componenteGrafico.getCenario().getDado2().getValor()) {
 							RepositorioJogador.getInstance().removeJogadorPreso(jogadorDaVez);
 							int aux = componenteGrafico.getCenario().getDado1().getValor() + componenteGrafico.getCenario().getDado2().getValor();
@@ -80,9 +70,8 @@ public class ControladorJogo {
 								((TerrenoComercializavel) proxCasa).ativarEfeitoCompanhia(jogadorDaVez, componenteGrafico.getCenario().getDado1().getValor() 
 										+ componenteGrafico.getCenario().getDado2().getValor());
 							}
+							break;
 						}
-						break;
-					}
 				} else {
 					valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
 					valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
