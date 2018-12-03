@@ -73,7 +73,12 @@ public class ControladorJogo {
 							int aux = componenteGrafico.getCenario().getDado1().getValor() + componenteGrafico.getCenario().getDado2().getValor();
 							moverPecaJogador(aux);
 							proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
-							proxCasa.ativarEfeito(jogadorDaVez);
+							if (proxCasa instanceof Imovel) {
+								proxCasa.ativarEfeito(jogadorDaVez);
+							} else {
+								((TerrenoComercializavel) proxCasa).ativarEfeitoCompanhia(jogadorDaVez, componenteGrafico.getCenario().getDado1().getValor() 
+										+ componenteGrafico.getCenario().getDado2().getValor());
+							}
 						}
 						break;
 					}
