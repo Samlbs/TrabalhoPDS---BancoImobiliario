@@ -1,6 +1,5 @@
 package Baralho;
 
-import Casa.Carta;
 import Repositorios.RepositorioCartas;
 
 public class InicializarBaralhoSorteReves {

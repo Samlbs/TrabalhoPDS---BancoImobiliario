@@ -1,6 +1,5 @@
 package Baralho;
 
-import Casa.Carta;
 import Jogador.Jogador;
 import Repositorios.RepositorioJogador;
 

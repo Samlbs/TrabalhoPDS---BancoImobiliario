@@ -6,7 +6,6 @@ import java.util.List;
 import Casa.Casa;
 import Casa.TerrenoComercializavel.Imovel;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
-import Casa.TerrenoEspecial.TerrenoEspecial;
 
 public class RepositorioCasas {
 	private List<Casa> casasTabuleiro = new ArrayList<>();
@@ -34,7 +33,7 @@ public class RepositorioCasas {
 	public List<Casa> getTerrenoEspecial(){
 		List<Casa> terrenosEspeciais = new ArrayList<>();
 		for (Casa terreno : casasTabuleiro) {
-			if (terreno instanceof TerrenoEspecial) {
+			if (!(terreno instanceof TerrenoComercializavel)) {
 				terrenosEspeciais.add(terreno);
 			}
 		}

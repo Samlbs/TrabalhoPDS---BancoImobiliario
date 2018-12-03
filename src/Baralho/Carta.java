@@ -1,4 +1,4 @@
-package Casa;
+package Baralho;
 
 import Jogador.Jogador;
 import View.DesenhaComponenteGrafico;

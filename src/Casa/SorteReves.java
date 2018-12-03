@@ -1,6 +1,6 @@
 package Casa;
 
-import Casa.TerrenoEspecial.TerrenoEspecial;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import Jogador.Jogador;
 import Repositorios.RepositorioCartas;
 import Repositorios.RepositorioCasas;
 
-public class SorteReves extends TerrenoEspecial{
+public class SorteReves extends Casa{
 
 	private IteratorCarta iterador = new IteratorSorteReves(RepositorioCartas.getInstance().getCartas());
 	

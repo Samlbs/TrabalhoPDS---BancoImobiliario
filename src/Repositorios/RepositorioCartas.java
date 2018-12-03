@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import Casa.Carta;
+import Baralho.Carta;
 
 public class RepositorioCartas {
 	private static List<Carta> baralho = new ArrayList<>();

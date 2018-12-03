@@ -1,9 +1,9 @@
 package Casa;
 
-import Casa.TerrenoEspecial.TerrenoEspecial;
+
 import Jogador.Jogador;
 
-public class VaiParaCadeia extends TerrenoEspecial {
+public class VaiParaCadeia extends Casa {
 
 	public VaiParaCadeia(String nome, int posicao, int id, int x, int y) {
 		super(nome, posicao, id, x, y);

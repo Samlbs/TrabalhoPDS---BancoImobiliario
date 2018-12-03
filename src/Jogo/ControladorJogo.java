@@ -45,6 +45,7 @@ public class ControladorJogo {
 			if(teclado.keyDown(Keyboard.D_KEY)) {
 				lancarDados();
 				componenteGrafico.getCenario().run();
+				
 				try {
 					Thread.sleep(300);
 				} catch (InterruptedException e) {e.printStackTrace();}
@@ -52,9 +53,7 @@ public class ControladorJogo {
 						+ componenteGrafico.getCenario().getDado2().getValor());
 				moverPecaJogador(aux);
 				Casa proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
-				
 				proxCasa.ativarEfeito(jogadorDaVez);
-				//fazer lógica de efeito, compra ou  pagar
 				if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
 					iteraJogador++;
 					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
@@ -98,4 +97,9 @@ public class ControladorJogo {
 		}
 		return posCasaMover;
 	}
+	
+	public void showSaldo(Jogador jogadorDaVez) {
+		
+	}
+	
 }

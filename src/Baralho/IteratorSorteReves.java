@@ -2,8 +2,6 @@ package Baralho;
 
 import java.util.List;
 
-import Casa.Carta;
-
 public class IteratorSorteReves implements IteratorCarta{
 	private List<Carta> cartas;
 	private int cursorAtual;
