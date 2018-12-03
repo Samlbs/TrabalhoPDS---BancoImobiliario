@@ -3,6 +3,7 @@ package Baralho;
 import Casa.Carta;
 import Jogador.Jogador;
 import Repositorios.RepositorioJogador;
+import View.DesenhaComponenteGrafico;
 
 public class SaidaLivre extends Carta{
 
@@ -14,7 +15,10 @@ public class SaidaLivre extends Carta{
 	@Override
 	public void ativarEfeito(Jogador jogador) {
 		// TODO Auto-generated method stub
+		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
 		RepositorioJogador.getInstance().removeJogadorPreso(jogador);
+		componenteGrafico.mensagemSorteSaidaLivre();
+		
 	}
 	
 

@@ -78,4 +78,24 @@ public class DesenhaComponenteGrafico {
 	public void mensagemPagarTaxa(double valor) {
 		JOptionPane.showMessageDialog(null, "Você terá que pagar "+valor+" de taxa", null, JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+	public void mensagemSorteReves(String tipo, double valor) {
+		if(tipo.equals("Sorte")) {
+			JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE ganhou " + valor, null, JOptionPane.INFORMATION_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nREVES pedeu " + valor, null, JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+	
+	public void mensagemSorteRecebe50DeTodos() {
+		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE ganhou 50 de Todos", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void mensagemSorteSaidaLivre() {
+		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE ganhou passe livre", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void mensagemRevesVaParaCadeia() {
+		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nREVES va para cadeia", null, JOptionPane.INFORMATION_MESSAGE);
+	}
 }
