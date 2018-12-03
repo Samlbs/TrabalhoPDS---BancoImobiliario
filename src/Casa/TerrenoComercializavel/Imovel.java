@@ -3,6 +3,8 @@ package Casa.TerrenoComercializavel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import Jogador.Jogador;
 import View.DesenhaComponenteGrafico;
 
@@ -30,9 +32,10 @@ public class Imovel extends TerrenoComercializavel {
 	public void ativarEfeito(Jogador jogador) {
 		if (this.getProprietario() == null) {
 			DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
-			
-			jogador.comprar(this);
-			setProprietario(jogador);
+			int resposta = painel.mensagemConfirmacaoCompra();
+			if(resposta == JOptionPane.YES_OPTION) {
+				jogador.comprar(this);
+			} 
 		}
 		else if (!this.getProprietario().equals(jogador) && this.getProprietario() != null) {
 			jogador.getConta().sacar(taxas[countCondominios]);
