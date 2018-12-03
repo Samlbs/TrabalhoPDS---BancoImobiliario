@@ -28,7 +28,13 @@ public class Jogador {
 	}
 
 	public void comprar(TerrenoComercializavel terreno) {
-		//depois
+		if (this.getConta().getSaldo() >= terreno.getValor()) {
+			this.getConta().sacar(terreno.getValor());
+			terreno.setProprietario(this);
+		}
+		else {
+			System.out.println("Saldo insuficiente");
+		}
 	}
 
 	public void pagarTaxa(double taxa) {
