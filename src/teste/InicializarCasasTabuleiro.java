@@ -16,9 +16,9 @@ import Casa.TerrenoComercializavel.Imovel;
 import Jogo.Tabuleiro;
 import Repositorios.RepositorioCasas;
 
-public class InicializarDados {
+public class InicializarCasasTabuleiro {
 	private List<Casa> casas;
-	public InicializarDados() {
+	public InicializarCasasTabuleiro() {
 		this.casas = RepositorioCasas.getInstance().getTodosTerrenos();
 	}
 	public void inicialize(Tabuleiro tabuleiro) {

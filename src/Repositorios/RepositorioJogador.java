@@ -36,6 +36,14 @@ public class RepositorioJogador {
 		return jogadoresPresos;
 	}
 	
+	public void addJogadorPreso(Jogador jogador) {
+		jogadoresPresos.add(jogador);
+	}
+	
+	public void removeJogadorPreso(Jogador jogador) {
+		jogadoresPresos.remove(jogador);
+	}
+	
 	public void adicionarJogador(int id) {
 		ContaBancaria conta = new ContaBancaria();
 		conta.depositar(2458);

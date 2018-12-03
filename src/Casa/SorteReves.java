@@ -1,11 +1,12 @@
 package Casa;
 
 import Casa.TerrenoEspecial.TerrenoEspecial;
-import IteratorSorteReves.IteratorCarta;
-import IteratorSorteReves.IteratorSorteReves;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Baralho.IteratorCarta;
+import Baralho.IteratorSorteReves;
 import Jogador.Jogador;
 
 public class SorteReves extends TerrenoEspecial{
