@@ -70,5 +70,8 @@ public class DesenhaComponenteGrafico {
 		return this.cenario;
 	}
 	
-	public 
+	public int mensagemConfirmacaoCompra() {
+		int resposta = JOptionPane.showConfirmDialog(null, "Deseja comprar este Imóvel?", null, JOptionPane.YES_NO_OPTION);
+		return resposta;
+	}
 }

@@ -31,7 +31,7 @@ public class Cenario1 {
 		this.faixaJogadorDaVez.x = 222;
 		this.faixaJogadorDaVez.y = 230;
 		this.scene.draw();
-		window.update();
+		//window.update();
 		
 	}
 	
