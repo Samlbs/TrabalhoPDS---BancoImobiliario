@@ -74,4 +74,8 @@ public class DesenhaComponenteGrafico {
 		int resposta = JOptionPane.showConfirmDialog(null, "Deseja comprar este Imóvel?", null, JOptionPane.YES_NO_OPTION);
 		return resposta;
 	}
+	
+	public void mensagemPagarTaxa(double valor) {
+		JOptionPane.showMessageDialog(null, "Você terá que pagar "+valor+" de taxa", null, JOptionPane.INFORMATION_MESSAGE);
+	}
 }

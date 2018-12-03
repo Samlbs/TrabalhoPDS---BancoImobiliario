@@ -30,15 +30,18 @@ public class Imovel extends TerrenoComercializavel {
 	}
 
 	public void ativarEfeito(Jogador jogador) {
+		DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
 		if (this.getProprietario() == null) {
-			DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
 			int resposta = painel.mensagemConfirmacaoCompra();
+			//System.out.println(jogador.getConta().getSaldo());
 			if(resposta == JOptionPane.YES_OPTION) {
 				jogador.comprar(this);
-			} 
+				//System.out.println(jogador.getConta().getSaldo());
+			}
 		}
-		else if (!this.getProprietario().equals(jogador) && this.getProprietario() != null) {
+		else if (!this.getProprietario().equals(jogador)) {
 			jogador.getConta().sacar(taxas[countCondominios]);
+			painel.mensagemPagarTaxa(taxas[countCondominios]);
 			this.getProprietario().getConta().depositar(taxas[countCondominios]);
 		}
 	}
