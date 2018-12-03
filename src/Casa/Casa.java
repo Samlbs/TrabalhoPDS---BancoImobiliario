@@ -45,6 +45,8 @@ public abstract class Casa implements IEfeitoCasa {
 		return this.y;
 	}
 	
+	
+	
 	public abstract void ativarEfeito(Jogador jogador);
 
 }

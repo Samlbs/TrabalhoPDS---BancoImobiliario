@@ -10,7 +10,9 @@ public class Partida extends TerrenoEspecial {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public void ativarEfeito(Jogador jogador) {
-		jogador.getConta().depositar(200);
+		// TODO Auto-generated method stub
+		return;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Jogador.Jogador;
+import View.DesenhaComponenteGrafico;
 
 public class Imovel extends TerrenoComercializavel {
 
@@ -27,7 +28,13 @@ public class Imovel extends TerrenoComercializavel {
 	}
 
 	public void ativarEfeito(Jogador jogador) {
-		if (!this.getProprietario().equals(jogador) && this.getProprietario() != null) {
+		if (this.getProprietario() == null) {
+			DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
+			
+			jogador.comprar(this);
+			setProprietario(jogador);
+		}
+		else if (!this.getProprietario().equals(jogador) && this.getProprietario() != null) {
 			jogador.getConta().sacar(taxas[countCondominios]);
 			this.getProprietario().getConta().depositar(taxas[countCondominios]);
 		}

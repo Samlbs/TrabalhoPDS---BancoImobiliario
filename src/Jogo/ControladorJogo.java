@@ -48,8 +48,12 @@ public class ControladorJogo {
 				try {
 					Thread.sleep(300);
 				} catch (InterruptedException e) {e.printStackTrace();}
-				moverPecaJogador(componenteGrafico.getCenario().getDado1().getValor()
+				int aux = getProxCasa(componenteGrafico.getCenario().getDado1().getValor()
 						+ componenteGrafico.getCenario().getDado2().getValor());
+				moverPecaJogador(aux);
+				Casa proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
+				
+				proxCasa.ativarEfeito(jogadorDaVez);
 				//fazer lógica de efeito, compra ou  pagar
 				if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
 					iteraJogador++;
@@ -77,16 +81,21 @@ public class ControladorJogo {
 	}
 	
 	public void moverPecaJogador(int valor) {
-		int posCasaMover = jogadorDaVez.getPosicaoAtual() + valor;
-		if(posCasaMover > 40) {
-			posCasaMover = posCasaMover - 40;
-		}
-		Casa casa = RepositorioCasas.getInstance().getCasaByPosicao(posCasaMover);
-		jogadorDaVez.setPosicaoAtual(posCasaMover, casa.getX(), casa.getY());
+		Casa casa = RepositorioCasas.getInstance().getCasaByPosicao(valor);
+		jogadorDaVez.setPosicaoAtual(valor, casa.getX(), casa.getY());
 		componenteGrafico.desenhaPecasNoTabuleiroInicio();
 	}
 	
 	public void trocarFaixaJogador(int id) {
 		componenteGrafico.getCenario().setFaixaJogadorDaVez(id);
+	}
+	
+	public int getProxCasa(int valor) {
+		int posCasaMover = jogadorDaVez.getPosicaoAtual() + valor;
+		if(posCasaMover > 40) {
+			posCasaMover = posCasaMover - 40;
+			jogadorDaVez.getConta().depositar(200);
+		}
+		return posCasaMover;
 	}
 }

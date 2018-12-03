@@ -69,4 +69,6 @@ public class DesenhaComponenteGrafico {
 	public Cenario1 getCenario() {
 		return this.cenario;
 	}
+	
+	public 
 }
