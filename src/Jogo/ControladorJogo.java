@@ -11,6 +11,8 @@ import java.awt.event.KeyEvent;
 
 import Casa.Casa;
 import Casa.ControladorCasa;
+import Casa.TerrenoComercializavel.Imovel;
+import Casa.TerrenoComercializavel.TerrenoComercializavel;
 import Dados.ControladorDado;
 
 public class ControladorJogo {
@@ -81,7 +83,11 @@ public class ControladorJogo {
 					int aux = getProxCasa(valorDado1 + valorDado2);
 					moverPecaJogador(aux);
 					proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
-					proxCasa.ativarEfeito(jogadorDaVez);
+					if (proxCasa instanceof Imovel) {
+						proxCasa.ativarEfeito(jogadorDaVez);
+					} else {
+						((TerrenoComercializavel) proxCasa).ativarEfeitoCompanhia(jogadorDaVez, valorDado1 + valorDado2);
+					}
 					
 					if (valorDado1 == valorDado2) {
 						while (true) {
