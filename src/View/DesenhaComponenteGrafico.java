@@ -175,4 +175,13 @@ public class DesenhaComponenteGrafico {
 		JOptionPane.showMessageDialog(null, "EEEEEEEEBAAAAAAAA\nVoce foi o grande Campeao!\nParabens "+
 									jogador.getPecaJogador().getCor()+"!", null, JOptionPane.INFORMATION_MESSAGE);
 	}
+
+	public int mensagemConfirmacaoUsoPasseLivre() {
+		int resposta = JOptionPane.showConfirmDialog(null, "Deseja usar passe livre?", null, JOptionPane.YES_NO_OPTION);
+		return resposta;
+	}
+
+	public void mensagemSaiuComPasse() {
+		JOptionPane.showMessageDialog(null, "Saiu com passe livre", null, JOptionPane.INFORMATION_MESSAGE);
+	}
 }

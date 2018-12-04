@@ -1,6 +1,8 @@
 package Casa;
 
 
+import javax.swing.JOptionPane;
+
 import Jogador.Jogador;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
@@ -17,6 +19,13 @@ public class VaiParaCadeia extends Casa {
 		jogador.setPosicaoAtual(11, 640, 640);;
 		RepositorioJogador.getInstance().addJogadorPreso(jogador);
 		componenteGrafico.mensagemPreso();
+		if(jogador.isPasseLivre()) {
+			int resposta = componenteGrafico.mensagemConfirmacaoUsoPasseLivre();
+			if(resposta == JOptionPane.YES_OPTION) {
+				RepositorioJogador.getInstance().removeJogadorPreso(jogador);
+				componenteGrafico.mensagemSaiuComPasse();
+			}
+		}
 	}
 
 }

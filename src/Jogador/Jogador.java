@@ -16,6 +16,7 @@ public class Jogador {
 	private List<TerrenoComercializavel> propriedades;
 	private Peca pecaJogador;
 	private int qtdRodadasPrisao;
+	private boolean passeLivre;
 	
 	
 	
@@ -28,6 +29,7 @@ public class Jogador {
 		this.pecaJogador = new Peca(640, 0, id);
 		this.propriedades = new ArrayList<>();
 		this.qtdRodadasPrisao = 0;
+		this.passeLivre = false;
 	}
 
 	public void comprar(TerrenoComercializavel terreno) {
@@ -196,5 +198,13 @@ public class Jogador {
 		for(TerrenoComercializavel terreno: propriedades) {
 			terreno.setProprietario(null);
 		}
+	}
+
+	public boolean isPasseLivre() {
+		return passeLivre;
+	}
+
+	public void setPasseLivre(boolean passeLivre) {
+		this.passeLivre = passeLivre;
 	}
 }

@@ -2,13 +2,21 @@ package Baralho;
 
 import java.util.List;
 
+import Repositorios.RepositorioCartas;
+
 public class IteratorSorteReves implements IteratorCarta{
-	private List<Carta> cartas;
+	private static IteratorSorteReves instance = null;
+	private List<Carta> cartas = RepositorioCartas.getInstance().getCartas();
 	private int cursorAtual;
 	
-	public IteratorSorteReves(List<Carta> cartas) {
-		super();
-		this.cartas = cartas;
+	private IteratorSorteReves() {
+	}
+	
+	public static IteratorSorteReves getInstance() {
+		if(instance == null) {
+			instance = new IteratorSorteReves();
+		}
+		return instance;
 	}
 
 	@Override
@@ -22,12 +30,13 @@ public class IteratorSorteReves implements IteratorCarta{
 
 	@Override
 	public Carta pegaCarta() {
+		Carta carta = null;  
 		if (existeProximo()) {
-			Carta carta = cartas.get(cursorAtual);
+			carta = cartas.get(cursorAtual);
 			cursorAtual++;
 			return carta;
 		}
-		return null;
+		return carta;
 	}
 
 }
