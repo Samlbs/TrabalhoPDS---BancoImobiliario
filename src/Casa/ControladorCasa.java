@@ -1,6 +1,5 @@
 package Casa;
 
-import Verificadores.VerificadorRegraCasa;
 import Casa.TerrenoComercializavel.ControladorTerrenoComercializavel;
 import Jogador.Jogador;
 

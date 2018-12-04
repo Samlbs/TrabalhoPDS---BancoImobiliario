@@ -19,12 +19,7 @@ public class InsereJogador implements VerificaRegrasInsereJogador {
 		}
 	}
 
-
-	/**
-	 * @see Verificadores.VerificaRegrasInsereJogador#verificaQtdJogadores(int)
-	 */
 	public boolean verificaQtdJogadores(int qtdJogadores) {
 		return false;
 	}
-
 }

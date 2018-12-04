@@ -11,7 +11,6 @@ public class Companhia extends TerrenoComercializavel {
 	
 	public Companhia(String nome, int posicao, int id, int x, int y, double valor, double taxa) {
 		super(nome, posicao, id, x, y, valor);
-		// TODO Auto-generated constructor stub
 		this.taxaCompanhia = taxa;
 	}
 	

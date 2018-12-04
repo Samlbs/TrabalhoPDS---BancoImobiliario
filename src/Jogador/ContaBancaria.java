@@ -5,7 +5,6 @@ public class ContaBancaria {
 	private double saldo;
 	
 	public ContaBancaria() {
-		
 	}
 
 	public void depositar(double valor) {
@@ -23,5 +22,4 @@ public class ContaBancaria {
 	public double getSaldo() {
 		return this.saldo;
 	}
-
 }

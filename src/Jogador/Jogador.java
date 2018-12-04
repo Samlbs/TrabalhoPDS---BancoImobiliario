@@ -18,8 +18,6 @@ public class Jogador {
 	private int qtdRodadasPrisao;
 	private boolean passeLivre;
 	
-	
-	
 	public Jogador(ContaBancaria conta) {
 		super();
 		this.id = identificador + 1;

@@ -2,22 +2,16 @@ package Repositorios;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import Jogador.ContaBancaria;
 import Jogador.Jogador;
-import Jogador.Peca;
-import jplay.URL;
 
 public class RepositorioJogador {
-
 	private static RepositorioJogador instance = null;
 	private List<Jogador> jogadores = new ArrayList<>();
 	private List<Jogador> jogadoresJogando = new ArrayList<>();
 	private List<Jogador> jogadoresPresos =  new ArrayList<>();
 	private List<Jogador> jogadoresFalidos = new ArrayList<>();
-	
 	private RepositorioJogador() {
-		
 	}
 	
 	public static RepositorioJogador getInstance() {

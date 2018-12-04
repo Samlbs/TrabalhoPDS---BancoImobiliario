@@ -1,8 +1,6 @@
 package teste;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import Casa.Cadeia;
 import Casa.Casa;
 import Casa.ImpostoDeRenda;
@@ -13,7 +11,6 @@ import Casa.SorteReves;
 import Casa.VaiParaCadeia;
 import Casa.TerrenoComercializavel.Companhia;
 import Casa.TerrenoComercializavel.Imovel;
-import Jogo.Tabuleiro;
 import Repositorios.RepositorioCasas;
 
 public class InicializarCasasTabuleiro {
@@ -108,4 +105,3 @@ public class InicializarCasasTabuleiro {
 		casas.add(brooklin);
 	}
 }
-

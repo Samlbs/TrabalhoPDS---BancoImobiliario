@@ -15,7 +15,6 @@ import Casa.TerrenoComercializavel.Companhia;
 import Casa.TerrenoComercializavel.Imovel;
 
 public class Tabuleiro {
-
 	private List<Casa> casas;
 	public Tabuleiro(List<Casa> casas) {
 		this.casas = casas;
@@ -106,13 +105,8 @@ public class Tabuleiro {
 		casas.add(jardimPaulista);
 		Casa brooklin = new Imovel("Brooklin", 40, 40, 576, 0, 260, "Azul Escuro", 150, 22, 110, 330, 800, 975, 1150);
 		casas.add(brooklin);
-		
 		//inicializar casas
 		InicializarBaralhoSorteReves baralhoSorteReves = new InicializarBaralhoSorteReves();
-		baralhoSorteReves.inicialize();
-		
+		baralhoSorteReves.inicialize();	
 	}
-	
-	
-
 }

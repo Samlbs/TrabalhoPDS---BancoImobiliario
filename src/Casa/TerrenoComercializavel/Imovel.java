@@ -1,12 +1,7 @@
 package Casa.TerrenoComercializavel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
-
 import Jogador.Jogador;
-import Repositorios.RepositorioCasas;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
@@ -20,7 +15,6 @@ public class Imovel extends TerrenoComercializavel {
 	public Imovel(String nome, int posicao, int id, int x, int y, double valor, String cor, double valorCondominio, 
 			double aluguel0, double aluguel1, double aluguel2, double aluguel3, double aluguel4, double aluguel5) {
 		super(nome, posicao, id, x, y, valor);
-		// TODO Auto-generated constructor stub
 		this.corImovel = cor;
 		this.valorCondominio = valorCondominio;
 		taxas[0] = aluguel0;
@@ -74,7 +68,4 @@ public class Imovel extends TerrenoComercializavel {
 	public void setCountCondominios(int countCondominios) {
 		this.countCondominios = countCondominios;
 	}
-	
-	
-
 }

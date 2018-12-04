@@ -4,8 +4,6 @@ import Verificadores.VerificaRegrasJogador;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
 import Repositorios.RepositorioJogador;
 
-import java.util.List;
-
 public class ControladorJogador implements VerificaRegrasJogador {
 	
 	public ControladorJogador() {
@@ -39,5 +37,4 @@ public class ControladorJogador implements VerificaRegrasJogador {
 		}
 		return false;
 	}
-
 }

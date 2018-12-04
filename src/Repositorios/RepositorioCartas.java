@@ -1,8 +1,6 @@
 package Repositorios;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import Baralho.Carta;
@@ -10,7 +8,6 @@ import Baralho.Carta;
 public class RepositorioCartas {
 	private List<Carta> baralho = new ArrayList<>();
 	private static RepositorioCartas instance;
-	
 	private RepositorioCartas() {}
 	
 	public static RepositorioCartas getInstance() {
@@ -26,6 +23,5 @@ public class RepositorioCartas {
 	
 	public void addCarta(Carta carta) {
 		baralho.add(carta);
-	}
-	
+	}	
 }

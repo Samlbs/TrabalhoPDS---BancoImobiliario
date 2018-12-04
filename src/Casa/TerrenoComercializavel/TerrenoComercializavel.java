@@ -1,7 +1,5 @@
 package Casa.TerrenoComercializavel;
 
-import java.util.List;
-
 import Casa.Casa;
 import Jogador.Jogador;
 
@@ -12,7 +10,6 @@ public abstract class TerrenoComercializavel extends Casa {
 	
 	public TerrenoComercializavel(String nome, int posicao, int id, int x, int y, double valor) {
 		super(nome, posicao, id, x, y);
-		// TODO Auto-generated constructor stub
 		this.valor = valor;
 	}
 

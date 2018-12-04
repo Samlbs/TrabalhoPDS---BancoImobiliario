@@ -1,12 +1,9 @@
 package Casa;
 
-import java.util.List;
 import Jogador.Jogador;
 
 public abstract class Casa implements IEfeitoCasa {
-
 	private String nome;
-	private List<Jogador> JogadoresNaCasa;
 	private int posicao;
 	private int id;
 	private int x;
@@ -45,8 +42,5 @@ public abstract class Casa implements IEfeitoCasa {
 		return this.y;
 	}
 	
-	
-	
 	public abstract void ativarEfeito(Jogador jogador);
-
 }

@@ -9,7 +9,6 @@ import Jogador.Jogador;
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Scene;
-import jplay.URL;
 import jplay.Window;
 import recursos.cenarios.Cenario1;
 
@@ -19,7 +18,6 @@ public class DesenhaComponenteGrafico {
 	private Keyboard teclado;
 	private Cenario1 cenario;
 	public DesenhaComponenteGrafico() {
-		
 	}
 	
 	public void lobby() {
@@ -60,8 +58,6 @@ public class DesenhaComponenteGrafico {
 		}
 		JOptionPane.showMessageDialog(null, mensagemInicial, null, JOptionPane.INFORMATION_MESSAGE);
 	}
-	
-	
 	
 	public Keyboard getTeclado() {
 		return this.teclado;
@@ -147,8 +143,7 @@ public class DesenhaComponenteGrafico {
 	}
 
 	public void mensagemPresoPorTresDuplas() {
-		JOptionPane.showMessageDialog(null, "Voce foi preso por tirar tres duplas seguidas", null, JOptionPane.INFORMATION_MESSAGE);
-		
+		JOptionPane.showMessageDialog(null, "Voce foi preso por tirar tres duplas seguidas", null, JOptionPane.INFORMATION_MESSAGE);	
 	}
 
 	public void mensagemCotinuaPreso() {

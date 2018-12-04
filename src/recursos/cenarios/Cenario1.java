@@ -31,15 +31,12 @@ public class Cenario1 {
 		this.faixaJogadorDaVez.x = 222;
 		this.faixaJogadorDaVez.y = 230;
 		this.scene.draw();
-		//window.update();
-		
 	}
 	
 	public void run() {
 		scene.draw();
 		desenhaDados();
 		faixaJogadorDaVez.draw();
-		//faixaJogadorDaVez.update();
 		for(Jogador j: jogadores) {
 			j.getPecaJogador().draw();
 			j.getPecaJogador().update();

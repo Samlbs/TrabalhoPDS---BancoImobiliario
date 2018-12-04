@@ -10,8 +10,8 @@ import Casa.TerrenoComercializavel.TerrenoComercializavel;
 public class RepositorioCasas {
 	private List<Casa> casasTabuleiro = new ArrayList<>();
 	private static RepositorioCasas instance;
-	
-	private RepositorioCasas () {}
+	private RepositorioCasas () {
+	}
 	
 	public static RepositorioCasas getInstance() {
 		if (instance == null) {
@@ -145,6 +145,5 @@ public class RepositorioCasas {
 			if(c.getPosicao() == posicao) return c;
 		}
 		return null;
-	}
-	
+	}	
 }

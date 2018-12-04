@@ -22,7 +22,6 @@ public class InsereCondominio implements VerificadorRegraCasa {
 	
 	@Override
 	public boolean validaRegraConstrucoes(Jogador jogador, Imovel imovel) {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		
 		if (imovel.getCorImovel().equals("Roxo")) {
@@ -65,8 +64,6 @@ public class InsereCondominio implements VerificadorRegraCasa {
 				flag = true;
 			}
 		}
-		return flag;
-		
+		return flag;	
 	}
-
 }

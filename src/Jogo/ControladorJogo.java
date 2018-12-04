@@ -5,22 +5,12 @@ import Repositorios.RepositorioCasas;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 import jplay.Keyboard;
-import teste.InicializarCasasTabuleiro;
-
-import java.awt.event.KeyEvent;
 import java.util.List;
-
 import Casa.Casa;
-import Casa.ControladorCasa;
 import Casa.TerrenoComercializavel.Companhia;
-import Casa.TerrenoComercializavel.Imovel;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
-import Dados.ControladorDado;
 
 public class ControladorJogo {
-
-	private ControladorCasa controlCasa;
-	private ControladorDado controlDado;
 	private DesenhaComponenteGrafico componenteGrafico;
 	private InsereJogador insereJogador;
 	private Jogador jogadorDaVez;
@@ -43,14 +33,11 @@ public class ControladorJogo {
 		jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
 		componenteGrafico.desenhaPecasNoTabuleiroInicio();
 		componenteGrafico.mensagemInicial(RepositorioJogador.getInstance().getJogadores());
-		
 		this.teclado = componenteGrafico.getTeclado();
-		
 		int valorDado1;
 		int valorDado2;
 		Casa proxCasa;
 		int contQtdDuplas = 0;
-		
 		while(true) {
 			if(((RepositorioJogador.getInstance().getJogadores().size() - 
 					RepositorioJogador.getInstance().getJogadoresFalidos().size()) == 1)
@@ -71,7 +58,6 @@ public class ControladorJogo {
 				try {
 					Thread.sleep(300);
 				} catch (InterruptedException e) {e.printStackTrace();}
-				
 				if (RepositorioJogador.getInstance().getJogadoresPresos().contains(jogadorDaVez)) {
 					if (valorDado1 == valorDado2 || jogadorDaVez.getQtdRodadasPrisao() == 4) {
 						RepositorioJogador.getInstance().removeJogadorPreso(jogadorDaVez);
@@ -113,7 +99,6 @@ public class ControladorJogo {
 					trocarJogadorDaVez();
 					contQtdDuplas = 0;
 				}
-				
 				if(valorDado1 != valorDado2) {
 					trocarJogadorDaVez();
 					contQtdDuplas = 0;
@@ -172,6 +157,5 @@ public class ControladorJogo {
 		trocarFaixaJogador(jogadorDaVez.getId());
 		//contQtdDuplas = 0;
 		componenteGrafico.getCenario().run();
-	}
-	
+	}	
 }
