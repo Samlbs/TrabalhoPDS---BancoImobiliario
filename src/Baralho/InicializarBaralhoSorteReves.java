@@ -33,32 +33,45 @@ public class InicializarBaralhoSorteReves {
 		Carta card12 = new Carta(12, "Reves", 25);
 		RepositorioCartas.getInstance().addCarta(card12);
 		
-		Carta card13 = new Carta(13, "Reves", 45);
+		Carta card13 = new Carta(13, "Reves", 30);
 		RepositorioCartas.getInstance().addCarta(card13);
-		Carta card14 = new Carta(14, "Sorte", 20);
+		Carta card14 = new Carta(14, "Reves", 45);
 		RepositorioCartas.getInstance().addCarta(card14);
-		Carta vaParaPrisao = new VaParaCadeia(15, "Reves", 0);
-		RepositorioCartas.getInstance().addCarta(vaParaPrisao);
-		Carta card16 = new Carta(16, "Reves", 15);
+		Carta card15 = new Carta(15, "Reves", 50);
+		RepositorioCartas.getInstance().addCarta(card15);
+		Carta card16 = new AvanceInicioRecebe200(16, "Sorte", 200);
 		RepositorioCartas.getInstance().addCarta(card16);
-		Carta card17 = new Carta (17, "Sorte", 100);
+		Carta card17 = new Carta(17, "Sorte", 50);
 		RepositorioCartas.getInstance().addCarta(card17);
-		Carta card18 = new Carta(18, "Reves", 30);
+		Carta card18 = new Carta(18, "Sorte", 100);
 		RepositorioCartas.getInstance().addCarta(card18);
+		
+		Carta card19 = new Carta(19, "Reves", 45);
+		RepositorioCartas.getInstance().addCarta(card19);
+		Carta card20 = new Carta(20, "Sorte", 20);
+		RepositorioCartas.getInstance().addCarta(card20);
+		Carta vaParaPrisao = new VaParaCadeia(21, "Reves", 0);
+		RepositorioCartas.getInstance().addCarta(vaParaPrisao);
+		Carta card22 = new Carta(22, "Reves", 15);
+		RepositorioCartas.getInstance().addCarta(card22);
+		Carta card23 = new Carta (23, "Sorte", 100);
+		RepositorioCartas.getInstance().addCarta(card23);
+		Carta card24 = new Carta(24, "Reves", 30);
+		RepositorioCartas.getInstance().addCarta(card24);
 
 		//card 19: receba 50 de cada 1
-		Carta card19 = new Recebe50deTodos(19, "Sorte", 50);
-		RepositorioCartas.getInstance().addCarta(card19);
-		Carta saidaLivre = new SaidaLivre(20, "Sorte", 0);
+		Carta card25 = new Recebe50deTodos(25, "Sorte", 50);
+		RepositorioCartas.getInstance().addCarta(card25);
+		Carta saidaLivre = new SaidaLivre(26, "Sorte", 0);
 		RepositorioCartas.getInstance().addCarta(saidaLivre);
-		Carta card21 = new Carta(21, "Sorte", 200);
-		RepositorioCartas.getInstance().addCarta(card21);
-		Carta card22 = new Carta(22, "Reves", 30);
-		RepositorioCartas.getInstance().addCarta(card22);
-		Carta card23 = new Carta(23, "Sorte", 50);
-		RepositorioCartas.getInstance().addCarta(card23);
-		Carta card24 = new Carta(24, "Sorete", 100);
-		RepositorioCartas.getInstance().addCarta(card24);
+		Carta card27 = new Carta(27, "Sorte", 200);
+		RepositorioCartas.getInstance().addCarta(card27);
+		Carta card28 = new Carta(28, "Reves", 30);
+		RepositorioCartas.getInstance().addCarta(card28);
+		Carta card29 = new Carta(29, "Sorte", 50);
+		RepositorioCartas.getInstance().addCarta(card29);
+		Carta card30 = new Carta(30, "Sorte", 100);
+		RepositorioCartas.getInstance().addCarta(card30);
 		
 		//Embaralhar cartas
 		Collections.shuffle(RepositorioCartas.getInstance().getCartas());

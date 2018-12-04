@@ -205,4 +205,15 @@ public class Jogador {
 	public void setPasseLivre(boolean passeLivre) {
 		this.passeLivre = passeLivre;
 	}
+	
+	public void comprarCondominio(Imovel imovel) {
+		if (this.getConta().getSaldo() >= imovel.getValorCondominio()) {
+			this.getConta().sacar(imovel.getValorCondominio());
+			imovel.setCountCondominios(imovel.getCountCondominios() + 1);
+		}
+		else {
+			DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
+			componenteGrafico.mensagemSaldoInsuficiente();
+		}
+	}
 }

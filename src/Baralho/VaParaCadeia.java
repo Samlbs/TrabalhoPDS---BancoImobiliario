@@ -21,6 +21,7 @@ public class VaParaCadeia extends Carta{
 			int resposta = componenteGrafico.mensagemConfirmacaoUsoPasseLivre();
 			if(resposta == JOptionPane.YES_OPTION) {
 				RepositorioJogador.getInstance().removeJogadorPreso(jogador);
+				jogador.setPasseLivre(false);
 				componenteGrafico.mensagemSaiuComPasse();
 			}
 		}

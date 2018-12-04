@@ -136,6 +136,26 @@ public class RepositorioCasas {
 		return azulEscuro;
 	}
 	
+	public List<Casa> getListCorPorCor(String cor){
+		if(cor.equals("Lilas")) {
+			return getImoveisLilas();
+		} else if(cor.equals("Azul")) {
+			return getImoveisAzuis();
+		} else if(cor.equals("Roxo")) {
+			return getImoveisRoxos();
+		} else if(cor.equals("Laranja")) {
+			return getImoveisLaranjas();
+		} else if(cor.equals("Rosa")) {
+			return getImoveisRosas();
+		} else if (cor.equals("Amarelo")) {
+			return getImoveisAmarelo();
+		} else if(cor.equals("Verde")) {
+			return getImoveisVerdes();
+		} else {
+			return getImoveisAzuisEscuro();
+		}
+	}
+	
 	public List<Casa> getTodosTerrenos(){
 		return casasTabuleiro;
 	}

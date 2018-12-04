@@ -179,4 +179,14 @@ public class DesenhaComponenteGrafico {
 	public void mensagemSaiuComPasse() {
 		JOptionPane.showMessageDialog(null, "Saiu com passe livre", null, JOptionPane.INFORMATION_MESSAGE);
 	}
+
+	public int mensagemConfirmacaoConstrucao() {
+		int resposta = JOptionPane.showConfirmDialog(null, "Voce e dono de todas as casas dessa cor\n"
+				+ "Voce quer construir um condominio?", null, JOptionPane.YES_NO_OPTION);
+		return resposta;
+	}
+
+	public void mensagemVaiInicioGanha200() {
+		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE: Va para o inicio e ganhe 200", null, JOptionPane.INFORMATION_MESSAGE);
+	}
 }

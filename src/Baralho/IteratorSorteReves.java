@@ -21,7 +21,7 @@ public class IteratorSorteReves implements IteratorCarta{
 
 	@Override
 	public boolean existeProximo() {
-		if (cartas.get(cursorAtual) != null) {
+		if (cursorAtual < this.cartas.size()) {
 			return true;
 		}
 		this.cursorAtual = 0;
