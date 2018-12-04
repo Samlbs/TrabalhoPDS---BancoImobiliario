@@ -1,6 +1,7 @@
 package Casa;
 
 import Jogador.Jogador;
+import View.DesenhaComponenteGrafico;
 
 public class ImpostoDeRenda extends Casa {
 
@@ -10,7 +11,9 @@ public class ImpostoDeRenda extends Casa {
 	}
 
 	public void ativarEfeito(Jogador jogador) {
+		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
 		jogador.getConta().sacar(200);
+		componenteGrafico.mensagemImposto();
 	}
 
 }

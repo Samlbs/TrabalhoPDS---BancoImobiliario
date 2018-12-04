@@ -1,6 +1,7 @@
 package Casa;
 
 import Jogador.Jogador;
+import View.DesenhaComponenteGrafico;
 
 public class LucrosEDividendos extends Casa {
 
@@ -10,7 +11,10 @@ public class LucrosEDividendos extends Casa {
 	}
 
 	public void ativarEfeito(Jogador jogador) {
+		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
 		jogador.getConta().depositar(200);
+		componenteGrafico.mensagemLucrosDividendos();
+		
 	}
 
 }

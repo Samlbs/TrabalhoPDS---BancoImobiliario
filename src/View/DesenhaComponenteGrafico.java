@@ -88,7 +88,7 @@ public class DesenhaComponenteGrafico {
 	}
 	
 	public void mensagemSorteRecebe50DeTodos() {
-		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE ganhou 50 de Todos", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE ganhou 50.0 de Todos", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	public void mensagemSorteSaidaLivre() {
@@ -101,5 +101,26 @@ public class DesenhaComponenteGrafico {
 	
 	public void mensagemPreso() {
 		JOptionPane.showMessageDialog(null, "Que pena! Você está preso!", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void mensagemLucrosDividendos() {
+		JOptionPane.showMessageDialog(null, "Lucros e Dividendos\nParabéns! Você ganhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemCadeiaVisitante() {
+		JOptionPane.showMessageDialog(null, "Relaxa! Você está só de visita na cadeia", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemParadaLivre() {
+		JOptionPane.showMessageDialog(null, "Nada acontece =)", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemImposto() {
+		JOptionPane.showMessageDialog(null, "Imposto de Renda\nPague 200.0", null, JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+
+	public void mensagemPassouInicio() {
+		JOptionPane.showMessageDialog(null, "Você deu uma volta completa no tabuleiro\nGanhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 }

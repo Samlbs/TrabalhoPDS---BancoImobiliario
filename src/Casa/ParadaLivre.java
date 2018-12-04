@@ -2,6 +2,7 @@ package Casa;
 
 
 import Jogador.Jogador;
+import View.DesenhaComponenteGrafico;
 
 public class ParadaLivre extends Casa {
 
@@ -11,7 +12,8 @@ public class ParadaLivre extends Casa {
 	}
 
 	public void ativarEfeito(Jogador jogador) {
-		
+		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
+		componenteGrafico.mensagemParadaLivre();
 	}
 
 }

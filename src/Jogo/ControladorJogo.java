@@ -53,7 +53,8 @@ public class ControladorJogo {
 			if(teclado.keyDown(Keyboard.D_KEY)) {
 				lancarDados();
 				componenteGrafico.getCenario().run();
-				
+				valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
+				valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
 				try {
 					Thread.sleep(300);
 				} catch (InterruptedException e) {e.printStackTrace();}
@@ -73,8 +74,8 @@ public class ControladorJogo {
 							break;
 						}
 				} else {
-					valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
-					valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
+//					valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
+//					valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
 					int aux = getProxCasa(valorDado1 + valorDado2);
 					moverPecaJogador(aux);
 					proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
@@ -84,44 +85,46 @@ public class ControladorJogo {
 						proxCasa.ativarEfeito(jogadorDaVez);
 					}
 					
-					if (valorDado1 == valorDado2) {
-						while (true) {
-							if(teclado.keyDown(Keyboard.D_KEY)) {
-								lancarDados();
-								componenteGrafico.getCenario().run();
-								
-								try {
-									Thread.sleep(300);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-								
-								valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
-								valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
-								if (valorDado1 == valorDado2) {
-									RepositorioJogador.getInstance().addJogadorPreso(jogadorDaVez);
-								} else {
-									aux = getProxCasa(valorDado1 + valorDado2);
-									moverPecaJogador(aux);
-									proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
-									proxCasa.ativarEfeito(jogadorDaVez);
-								}
-								break;
-							}	
-						}
-					}
+//					if (valorDado1 == valorDado2) {
+//						while (true) {
+//							if(teclado.keyDown(Keyboard.D_KEY)) {
+//								lancarDados();
+//								componenteGrafico.getCenario().run();
+//								
+//								try {
+//									Thread.sleep(300);
+//								} catch (InterruptedException e) {
+//									e.printStackTrace();
+//								}
+//								
+//								valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
+//								valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
+//								if (valorDado1 == valorDado2) {
+//									RepositorioJogador.getInstance().addJogadorPreso(jogadorDaVez);
+//								} else {
+//									aux = getProxCasa(valorDado1 + valorDado2);
+//									moverPecaJogador(aux);
+//									proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
+//									proxCasa.ativarEfeito(jogadorDaVez);
+//								}
+//								break;
+//							}	
+//						}
+//					}
 				}
 				
-				if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
-					iteraJogador++;
-					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-				} else {
-					iteraJogador = 0;
-					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+				if(valorDado1 != valorDado2) {
+					if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
+						iteraJogador++;
+						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+					} else {
+						iteraJogador = 0;
+						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+					}
+					trocarFaixaJogador(jogadorDaVez.getId());
+					componenteGrafico.getCenario().run();
 				}
-				trocarFaixaJogador(jogadorDaVez.getId());
-				componenteGrafico.getCenario().run();
-
+				
 			}
 		}
 	}
@@ -152,6 +155,7 @@ public class ControladorJogo {
 		if(posCasaMover > 40) {
 			posCasaMover = posCasaMover - 40;
 			jogadorDaVez.getConta().depositar(200);
+			componenteGrafico.mensagemPassouInicio();
 		}
 		return posCasaMover;
 	}
