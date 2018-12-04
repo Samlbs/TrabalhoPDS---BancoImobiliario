@@ -145,4 +145,33 @@ public class DesenhaComponenteGrafico {
 	public void mensagemSaldoInsuficiente() {
 		JOptionPane.showMessageDialog(null, "Saldo Insuficiente", null, JOptionPane.INFORMATION_MESSAGE);
 	}
+
+	public void mensagemPresoPorTresDuplas() {
+		JOptionPane.showMessageDialog(null, "Voce foi preso por tirar tres duplas seguidas", null, JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+
+	public void mensagemCotinuaPreso() {
+		JOptionPane.showMessageDialog(null, "Continua preso :(", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemSaiuCadeiaComDupla() {
+		JOptionPane.showMessageDialog(null, "Voce tirou uma dupla e saiu da cadeia", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemSoltoAposQuatroRodadas() {
+		JOptionPane.showMessageDialog(null, "Você pagou 50.0 e saiu da cadeia", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemJogadorEhDono() {
+		JOptionPane.showMessageDialog(null, "Você ja eh o dono dessa propriedade", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemFalencia() {
+		JOptionPane.showMessageDialog(null, "Voce foi a falencia e será retirado do jogo :(", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemVencedor(Jogador jogador) {
+		JOptionPane.showMessageDialog(null, "EEEEEEEEBAAAAAAAA\nVoce foi o grande Campeao!\nParabens "+jogador+"!", null, JOptionPane.INFORMATION_MESSAGE);
+	}
 }

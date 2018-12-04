@@ -14,6 +14,7 @@ public class RepositorioJogador {
 	private List<Jogador> jogadores = new ArrayList<>();
 	private List<Jogador> jogadoresJogando = new ArrayList<>();
 	private List<Jogador> jogadoresPresos =  new ArrayList<>();
+	private List<Jogador> jogadoresFalidos = new ArrayList<>();
 	
 	private RepositorioJogador() {
 		
@@ -34,6 +35,9 @@ public class RepositorioJogador {
 	}
 	public List<Jogador> getJogadoresPresos() {
 		return jogadoresPresos;
+	}
+	public List<Jogador> getJogadoresFalidos(){
+		return jogadoresFalidos;
 	}
 	
 	public void addJogadorPreso(Jogador jogador) {

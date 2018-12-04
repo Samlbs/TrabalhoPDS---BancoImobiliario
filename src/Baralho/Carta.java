@@ -1,6 +1,7 @@
 package Baralho;
 
 import Jogador.Jogador;
+import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
 public class Carta {
@@ -22,8 +23,15 @@ public class Carta {
 			jogador.getConta().depositar(valor);
 			componenteGrafico.mensagemSorteReves(this.nome, valor);
 		} else if (this.nome.equals("Reves")) {
-			jogador.getConta().sacar(valor);
-			componenteGrafico.mensagemSorteReves(this.nome, valor);
+			if(jogador.getSaldoBancario() > valor) {
+				jogador.getConta().sacar(valor);
+				componenteGrafico.mensagemSorteReves(this.nome, valor);
+			} else {
+				RepositorioJogador.getInstance().getJogadoresFalidos().add(jogador);
+				jogador.transferirPropriedadesParaBanco();
+				jogador.getPecaJogador().hide();
+				componenteGrafico.mensagemFalencia();
+			}
 		}
 	}
 }

@@ -3,6 +3,7 @@ package Casa.TerrenoComercializavel;
 import javax.swing.JOptionPane;
 
 import Jogador.Jogador;
+import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
 public class Companhia extends TerrenoComercializavel {
@@ -23,16 +24,23 @@ public class Companhia extends TerrenoComercializavel {
 		DesenhaComponenteGrafico painel = new DesenhaComponenteGrafico();
 		if (this.getProprietario() == null) {
 			int resposta = painel.mensagemConfirmacaoCompra();
-			//System.out.println(jogador.getConta().getSaldo());
 			if(resposta == JOptionPane.YES_OPTION) {
 				jogador.comprar(this);
-				//System.out.println(jogador.getConta().getSaldo());
 			}
 		}
 		else if (!this.getProprietario().equals(jogador)) {
-			jogador.getConta().sacar(taxaCompanhia * valorDados);
-			painel.mensagemPagarTaxa(taxaCompanhia * valorDados);
-			this.getProprietario().getConta().depositar(taxaCompanhia * valorDados);
+			if(jogador.getSaldoBancario() > taxaCompanhia * valorDados) {
+				jogador.getConta().sacar(taxaCompanhia * valorDados);
+				painel.mensagemPagarTaxa(taxaCompanhia * valorDados);
+				this.getProprietario().getConta().depositar(taxaCompanhia * valorDados);
+			} else {
+				RepositorioJogador.getInstance().getJogadoresFalidos().add(jogador);
+				jogador.transferirPropriedadesParaBanco();
+				jogador.getPecaJogador().hide();
+				painel.mensagemFalencia();
+			}
+		} else {
+			painel.mensagemJogadorEhDono();
 		}
 	}
 }

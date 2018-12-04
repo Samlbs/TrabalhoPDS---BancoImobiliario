@@ -6,6 +6,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import Jogador.Jogador;
+import Repositorios.RepositorioCasas;
+import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
 public class Imovel extends TerrenoComercializavel {
@@ -38,9 +40,18 @@ public class Imovel extends TerrenoComercializavel {
 			}
 		}
 		else if (!this.getProprietario().equals(jogador)) {
-			jogador.getConta().sacar(taxas[countCondominios]);
-			painel.mensagemPagarTaxa(taxas[countCondominios]);
-			this.getProprietario().getConta().depositar(taxas[countCondominios]);
+			if(jogador.getSaldoBancario() > taxas[countCondominios]) {
+				jogador.getConta().sacar(taxas[countCondominios]);
+				painel.mensagemPagarTaxa(taxas[countCondominios]);
+				this.getProprietario().getConta().depositar(taxas[countCondominios]);
+			} else {
+				RepositorioJogador.getInstance().getJogadoresFalidos().add(jogador);
+				jogador.transferirPropriedadesParaBanco();
+				jogador.getPecaJogador().hide();
+				painel.mensagemFalencia();
+			}
+		} else {
+			painel.mensagemJogadorEhDono();
 		}
 	}
 

@@ -15,6 +15,7 @@ public class Jogador {
 	private ContaBancaria conta;
 	private List<TerrenoComercializavel> propriedades;
 	private Peca pecaJogador;
+	private int qtdRodadasPrisao;
 	
 	
 	
@@ -26,6 +27,7 @@ public class Jogador {
 		this.conta = conta;
 		this.pecaJogador = new Peca(640, 0, id);
 		this.propriedades = new ArrayList<>();
+		this.qtdRodadasPrisao = 0;
 	}
 
 	public void comprar(TerrenoComercializavel terreno) {
@@ -178,4 +180,21 @@ public class Jogador {
 		return this.propriedades;
 	}
 
+	public void incrementaQtdRodadasPrisao() {
+		this.qtdRodadasPrisao++;
+	}
+	
+	public int getQtdRodadasPrisao() {
+		return this.qtdRodadasPrisao;
+	}
+	
+	public void zeraQtdRodadasPrisao() {
+		this.qtdRodadasPrisao = 0;
+	}
+
+	public void transferirPropriedadesParaBanco() {
+		for(TerrenoComercializavel terreno: propriedades) {
+			terreno.setProprietario(null);
+		}
+	}
 }

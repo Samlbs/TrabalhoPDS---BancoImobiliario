@@ -1,6 +1,7 @@
 package Casa;
 
 import Jogador.Jogador;
+import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
 public class ImpostoDeRenda extends Casa {
@@ -12,8 +13,15 @@ public class ImpostoDeRenda extends Casa {
 
 	public void ativarEfeito(Jogador jogador) {
 		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
-		jogador.getConta().sacar(200);
-		componenteGrafico.mensagemImposto();
+		if(jogador.getSaldoBancario() > 200) {
+			jogador.getConta().sacar(200);
+			componenteGrafico.mensagemImposto();
+		} else {
+			RepositorioJogador.getInstance().getJogadoresFalidos().add(jogador);
+			jogador.transferirPropriedadesParaBanco();
+			jogador.getPecaJogador().hide();
+			componenteGrafico.mensagemFalencia();
+		}
 	}
 
 }

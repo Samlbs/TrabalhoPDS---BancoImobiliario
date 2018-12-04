@@ -49,31 +49,69 @@ public class ControladorJogo {
 		int valorDado1;
 		int valorDado2;
 		Casa proxCasa;
+		int contQtdDuplas = 0;
 		
 		while(true) {
+			if(((RepositorioJogador.getInstance().getJogadores().size() - 
+					RepositorioJogador.getInstance().getJogadoresFalidos().size()) == 1)
+					&& !RepositorioJogador.getInstance().getJogadoresFalidos().contains(jogadorDaVez)) {
+				componenteGrafico.mensagemVencedor(jogadorDaVez);
+				break;
+			}
+			if(RepositorioJogador.getInstance().getJogadoresFalidos().contains(jogadorDaVez)) {
+				if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
+					iteraJogador++;
+					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+				} else {
+					iteraJogador = 0;
+					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+				}
+				trocarFaixaJogador(jogadorDaVez.getId());
+				contQtdDuplas = 0;
+				componenteGrafico.getCenario().run();
+			}
 			if(teclado.keyDown(Keyboard.D_KEY)) {
 				lancarDados();
 				componenteGrafico.getCenario().run();
 				valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
 				valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
+				if(valorDado1 == valorDado2) contQtdDuplas++;
 				try {
 					Thread.sleep(300);
 				} catch (InterruptedException e) {e.printStackTrace();}
 				
 				if (RepositorioJogador.getInstance().getJogadoresPresos().contains(jogadorDaVez)) {
-						if (valorDado1 == valorDado2) {
-							RepositorioJogador.getInstance().removeJogadorPreso(jogadorDaVez);
-							int somaDados = valorDado1 + valorDado2;
-							moverPecaJogador(somaDados);
-							proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(somaDados);
-							if (proxCasa instanceof Imovel) {
-								proxCasa.ativarEfeito(jogadorDaVez);
-							} else {
-								((TerrenoComercializavel) proxCasa).ativarEfeitoCompanhia(jogadorDaVez, componenteGrafico.getCenario().getDado1().getValor() 
-										+ componenteGrafico.getCenario().getDado2().getValor());
-							}
-							break;
+					if (valorDado1 == valorDado2 || jogadorDaVez.getQtdRodadasPrisao() == 4) {
+						RepositorioJogador.getInstance().removeJogadorPreso(jogadorDaVez);
+						int endProxCasa = getProxCasa(valorDado1 + valorDado2);
+						moverPecaJogador(endProxCasa);
+						proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(endProxCasa);
+						if (proxCasa instanceof Companhia) {
+							((Companhia) proxCasa).ativarEfeitoCompanhia(jogadorDaVez, valorDado1 + valorDado2);
+						} else {
+							proxCasa.ativarEfeito(jogadorDaVez);
 						}
+						if(valorDado1 == valorDado2) {
+							componenteGrafico.mensagemSaiuCadeiaComDupla();
+							if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
+								iteraJogador++;
+								jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+							} else {
+								iteraJogador = 0;
+								jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+							}
+							trocarFaixaJogador(jogadorDaVez.getId());
+							contQtdDuplas = 0;
+							componenteGrafico.getCenario().run();
+						} else {
+							jogadorDaVez.getConta().sacar(50);
+							componenteGrafico.mensagemSoltoAposQuatroRodadas();
+						}
+						jogadorDaVez.zeraQtdRodadasPrisao();
+					}else {
+						jogadorDaVez.incrementaQtdRodadasPrisao();
+						componenteGrafico.mensagemCotinuaPreso();
+					}
 				} else {
 					int aux = getProxCasa(valorDado1 + valorDado2);
 					moverPecaJogador(aux);
@@ -84,7 +122,24 @@ public class ControladorJogo {
 						proxCasa.ativarEfeito(jogadorDaVez);
 					}
 				}
+				if(contQtdDuplas == 3) {
+					jogadorDaVez.setPosicaoAtual(11, 640, 640);
+					RepositorioJogador.getInstance().addJogadorPreso(jogadorDaVez);
+					componenteGrafico.mensagemPresoPorTresDuplas();
+					//copiei do if abaixo pq não sabia outra maneira de trocar o jogador quando valores dado fossem iguais
+					if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
+						iteraJogador++;
+						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+					} else {
+						iteraJogador = 0;
+						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+					}
+					trocarFaixaJogador(jogadorDaVez.getId());
+					contQtdDuplas = 0;
+					componenteGrafico.getCenario().run();
+				}
 				
+				//se o jogador for preso depois de tirar uma dupla, ele joga de novo????
 				if(valorDado1 != valorDado2) {
 					if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
 						iteraJogador++;
@@ -94,6 +149,7 @@ public class ControladorJogo {
 						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
 					}
 					trocarFaixaJogador(jogadorDaVez.getId());
+					contQtdDuplas = 0;
 					componenteGrafico.getCenario().run();
 				}
 				
