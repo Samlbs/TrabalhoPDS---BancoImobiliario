@@ -1,5 +1,7 @@
 package Baralho;
 
+import java.util.Collections;
+
 import Repositorios.RepositorioCartas;
 
 public class InicializarBaralhoSorteReves {
@@ -57,5 +59,8 @@ public class InicializarBaralhoSorteReves {
 		RepositorioCartas.getInstance().addCarta(card23);
 		Carta card24 = new Carta(24, "Sorete", 100);
 		RepositorioCartas.getInstance().addCarta(card24);
+		
+		//Embaralhar cartas
+		Collections.shuffle(RepositorioCartas.getInstance().getCartas());
 	}
 }

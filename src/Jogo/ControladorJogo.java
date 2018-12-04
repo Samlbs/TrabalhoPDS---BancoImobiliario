@@ -59,16 +59,8 @@ public class ControladorJogo {
 				break;
 			}
 			if(RepositorioJogador.getInstance().getJogadoresFalidos().contains(jogadorDaVez)) {
-				if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
-					iteraJogador++;
-					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-				} else {
-					iteraJogador = 0;
-					jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-				}
-				trocarFaixaJogador(jogadorDaVez.getId());
+				trocarJogadorDaVez();
 				contQtdDuplas = 0;
-				componenteGrafico.getCenario().run();
 			}
 			if(teclado.keyDown(Keyboard.D_KEY)) {
 				lancarDados();
@@ -93,16 +85,8 @@ public class ControladorJogo {
 						}
 						if(valorDado1 == valorDado2) {
 							componenteGrafico.mensagemSaiuCadeiaComDupla();
-							if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
-								iteraJogador++;
-								jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-							} else {
-								iteraJogador = 0;
-								jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-							}
-							trocarFaixaJogador(jogadorDaVez.getId());
+							trocarJogadorDaVez();
 							contQtdDuplas = 0;
-							componenteGrafico.getCenario().run();
 						} else {
 							jogadorDaVez.getConta().sacar(50);
 							componenteGrafico.mensagemSoltoAposQuatroRodadas();
@@ -126,33 +110,14 @@ public class ControladorJogo {
 					jogadorDaVez.setPosicaoAtual(11, 640, 640);
 					RepositorioJogador.getInstance().addJogadorPreso(jogadorDaVez);
 					componenteGrafico.mensagemPresoPorTresDuplas();
-					//copiei do if abaixo pq não sabia outra maneira de trocar o jogador quando valores dado fossem iguais
-					if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
-						iteraJogador++;
-						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-					} else {
-						iteraJogador = 0;
-						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-					}
-					trocarFaixaJogador(jogadorDaVez.getId());
+					trocarJogadorDaVez();
 					contQtdDuplas = 0;
-					componenteGrafico.getCenario().run();
 				}
 				
-				//se o jogador for preso depois de tirar uma dupla, ele joga de novo????
 				if(valorDado1 != valorDado2) {
-					if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
-						iteraJogador++;
-						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-					} else {
-						iteraJogador = 0;
-						jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
-					}
-					trocarFaixaJogador(jogadorDaVez.getId());
+					trocarJogadorDaVez();
 					contQtdDuplas = 0;
-					componenteGrafico.getCenario().run();
 				}
-				
 			}
 			if(teclado.keyDown(Keyboard.S_KEY)) {
 				double saldo = jogadorDaVez.getSaldoBancario();
@@ -194,6 +159,19 @@ public class ControladorJogo {
 			componenteGrafico.mensagemPassouInicio();
 		}
 		return posCasaMover;
+	}
+	
+	public void trocarJogadorDaVez() {
+		if(iteraJogador < RepositorioJogador.getInstance().getJogadores().size() - 1) {
+			iteraJogador++;
+			jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+		} else {
+			iteraJogador = 0;
+			jogadorDaVez = RepositorioJogador.getInstance().getJogadores().get(iteraJogador);
+		}
+		trocarFaixaJogador(jogadorDaVez.getId());
+		//contQtdDuplas = 0;
+		componenteGrafico.getCenario().run();
 	}
 	
 }

@@ -6,14 +6,13 @@ public class IteratorSorteReves implements IteratorCarta{
 	private List<Carta> cartas;
 	private int cursorAtual;
 	
-	public IteratorSorteReves(List<Carta> cartas2) {
+	public IteratorSorteReves(List<Carta> cartas) {
 		super();
-		this.cartas = cartas2;
+		this.cartas = cartas;
 	}
 
 	@Override
-	public boolean exiteProximo() {
-		// TODO Auto-generated method stub
+	public boolean existeProximo() {
 		if (cartas.get(cursorAtual) != null) {
 			return true;
 		}
@@ -23,8 +22,7 @@ public class IteratorSorteReves implements IteratorCarta{
 
 	@Override
 	public Carta pegaCarta() {
-		// TODO Auto-generated method stub
-		if (exiteProximo()) {
+		if (existeProximo()) {
 			Carta carta = cartas.get(cursorAtual);
 			cursorAtual++;
 			return carta;

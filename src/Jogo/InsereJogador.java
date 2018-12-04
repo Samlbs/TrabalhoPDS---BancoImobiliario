@@ -15,7 +15,7 @@ public class InsereJogador implements VerificaRegrasInsereJogador {
 	public void inserirQtdJogadores() {
 		int qtdJogadores = desenha.telaInserirQtdJogador();
 		for(int i = 0; i < qtdJogadores; i++) {
-			RepositorioJogador.getInstance().adicionarJogador(i + 1);
+			RepositorioJogador.getInstance().adicionarJogador();
 		}
 	}
 

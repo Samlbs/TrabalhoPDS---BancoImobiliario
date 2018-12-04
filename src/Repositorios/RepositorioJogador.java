@@ -48,11 +48,10 @@ public class RepositorioJogador {
 		jogadoresPresos.remove(jogador);
 	}
 	
-	public void adicionarJogador(int id) {
+	public void adicionarJogador() {
 		ContaBancaria conta = new ContaBancaria();
 		conta.depositar(2458);
 		Jogador jogador = new Jogador(conta);
 		jogadores.add(jogador);
-		//System.out.println(jogador.getPecaJogador().getId());
 	}
 }

@@ -172,6 +172,7 @@ public class DesenhaComponenteGrafico {
 	}
 
 	public void mensagemVencedor(Jogador jogador) {
-		JOptionPane.showMessageDialog(null, "EEEEEEEEBAAAAAAAA\nVoce foi o grande Campeao!\nParabens "+jogador+"!", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "EEEEEEEEBAAAAAAAA\nVoce foi o grande Campeao!\nParabens "+
+									jogador.getPecaJogador().getCor()+"!", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 }

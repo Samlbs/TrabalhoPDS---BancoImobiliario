@@ -8,7 +8,7 @@ import java.util.List;
 import Baralho.Carta;
 
 public class RepositorioCartas {
-	private static List<Carta> baralho = new ArrayList<>();
+	private List<Carta> baralho = new ArrayList<>();
 	private static RepositorioCartas instance;
 	
 	private RepositorioCartas() {}
@@ -16,7 +16,6 @@ public class RepositorioCartas {
 	public static RepositorioCartas getInstance() {
 		if (instance == null) {
 			instance = new RepositorioCartas();
-			Collections.shuffle(baralho);
 		}
 		return instance;
 	}
