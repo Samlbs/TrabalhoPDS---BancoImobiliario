@@ -14,10 +14,8 @@ public class AvanceInicioRecebe200 extends Carta{
 	@Override
 	public void ativarEfeito(Jogador jogador) {
 		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
-		Casa casa = RepositorioCasas.getInstance().getCasaByPosicao(1);
+		jogador.setPosicaoAtual(1, 640, 0);
 		jogador.getConta().depositar(200);
-		jogador.setPosicaoAtual(casa.getPosicao(), casa.getX(), casa.getY());
-		componenteGrafico.desenhaPecasNoTabuleiroInicio();
 		componenteGrafico.mensagemVaiInicioGanha200();
 	}
 }

@@ -17,8 +17,8 @@ public class Recebe50deTodos extends Carta{
 			if (player != jogador && !RepositorioJogador.getInstance().getJogadoresFalidos().contains(player)) {
 				player.getConta().sacar(50);
 				jogador.getConta().depositar(50);
-				componenteGrafico.mensagemSorteRecebe50DeTodos();
 			}
 		}
+		componenteGrafico.mensagemSorteRecebe50DeTodos();
 	}
 }
