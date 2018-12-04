@@ -8,6 +8,7 @@ import jplay.Keyboard;
 import teste.InicializarCasasTabuleiro;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import Casa.Casa;
 import Casa.ControladorCasa;
@@ -60,11 +61,11 @@ public class ControladorJogo {
 				} catch (InterruptedException e) {e.printStackTrace();}
 				
 				if (RepositorioJogador.getInstance().getJogadoresPresos().contains(jogadorDaVez)) {
-						if (componenteGrafico.getCenario().getDado1().getValor() == componenteGrafico.getCenario().getDado2().getValor()) {
+						if (valorDado1 == valorDado2) {
 							RepositorioJogador.getInstance().removeJogadorPreso(jogadorDaVez);
-							int aux = componenteGrafico.getCenario().getDado1().getValor() + componenteGrafico.getCenario().getDado2().getValor();
-							moverPecaJogador(aux);
-							proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
+							int somaDados = valorDado1 + valorDado2;
+							moverPecaJogador(somaDados);
+							proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(somaDados);
 							if (proxCasa instanceof Imovel) {
 								proxCasa.ativarEfeito(jogadorDaVez);
 							} else {
@@ -74,8 +75,6 @@ public class ControladorJogo {
 							break;
 						}
 				} else {
-//					valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
-//					valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
 					int aux = getProxCasa(valorDado1 + valorDado2);
 					moverPecaJogador(aux);
 					proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
@@ -84,33 +83,6 @@ public class ControladorJogo {
 					} else {
 						proxCasa.ativarEfeito(jogadorDaVez);
 					}
-					
-//					if (valorDado1 == valorDado2) {
-//						while (true) {
-//							if(teclado.keyDown(Keyboard.D_KEY)) {
-//								lancarDados();
-//								componenteGrafico.getCenario().run();
-//								
-//								try {
-//									Thread.sleep(300);
-//								} catch (InterruptedException e) {
-//									e.printStackTrace();
-//								}
-//								
-//								valorDado1 = componenteGrafico.getCenario().getDado1().getValor();
-//								valorDado2 = componenteGrafico.getCenario().getDado2().getValor();
-//								if (valorDado1 == valorDado2) {
-//									RepositorioJogador.getInstance().addJogadorPreso(jogadorDaVez);
-//								} else {
-//									aux = getProxCasa(valorDado1 + valorDado2);
-//									moverPecaJogador(aux);
-//									proxCasa = RepositorioCasas.getInstance().getCasaByPosicao(aux);
-//									proxCasa.ativarEfeito(jogadorDaVez);
-//								}
-//								break;
-//							}	
-//						}
-//					}
 				}
 				
 				if(valorDado1 != valorDado2) {
@@ -125,6 +97,14 @@ public class ControladorJogo {
 					componenteGrafico.getCenario().run();
 				}
 				
+			}
+			if(teclado.keyDown(Keyboard.S_KEY)) {
+				double saldo = jogadorDaVez.getSaldoBancario();
+				componenteGrafico.mostrarSaldoJogador(saldo);
+			}
+			if(teclado.keyDown(Keyboard.M_KEY)) {
+				List<TerrenoComercializavel> terrenos = jogadorDaVez.getMinhasPropriedades();
+				componenteGrafico.mostrarTerrenos(terrenos);
 			}
 		}
 	}

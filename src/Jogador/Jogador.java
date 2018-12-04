@@ -5,6 +5,7 @@ import java.util.List;
 
 import Casa.TerrenoComercializavel.Imovel;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
+import View.DesenhaComponenteGrafico;
 
 public class Jogador {
 
@@ -31,9 +32,11 @@ public class Jogador {
 		if (this.getConta().getSaldo() >= terreno.getValor()) {
 			this.getConta().sacar(terreno.getValor());
 			terreno.setProprietario(this);
+			this.propriedades.add(terreno);
 		}
 		else {
-			System.out.println("Saldo insuficiente");
+			DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
+			componenteGrafico.mensagemSaldoInsuficiente();
 		}
 	}
 

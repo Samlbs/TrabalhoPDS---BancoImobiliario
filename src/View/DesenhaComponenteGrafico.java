@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import Casa.TerrenoComercializavel.TerrenoComercializavel;
 import Jogador.Jogador;
 import jplay.GameImage;
 import jplay.Keyboard;
@@ -122,5 +123,26 @@ public class DesenhaComponenteGrafico {
 
 	public void mensagemPassouInicio() {
 		JOptionPane.showMessageDialog(null, "Você deu uma volta completa no tabuleiro\nGanhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mostrarSaldoJogador(double saldo) {
+		JOptionPane.showMessageDialog(null, "Saldo\nVoce possui "+saldo+" em sua conta", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mostrarTerrenos(List<TerrenoComercializavel> terrenos) {
+		String meusTerrenos = "";
+		if(terrenos.size() == 0) {
+			meusTerrenos = "Você não possui nenhum terreno!";
+		} else {
+			meusTerrenos = "Minhas Propriedades:\n";
+			for(TerrenoComercializavel terreno: terrenos) {
+				meusTerrenos = meusTerrenos + "* " +terreno.getNome()+"\n";
+			}
+		}
+		JOptionPane.showMessageDialog(null, meusTerrenos, null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void mensagemSaldoInsuficiente() {
+		JOptionPane.showMessageDialog(null, "Saldo Insuficiente", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 }
