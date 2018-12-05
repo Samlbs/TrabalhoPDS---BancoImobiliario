@@ -18,7 +18,7 @@ public class VaiParaCadeia extends Casa {
 		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
 		jogador.setPosicaoAtual(11, 640, 640);;
 		RepositorioJogador.getInstance().addJogadorPreso(jogador);
-		SomEfeitos.play("cadeia");
+		SomEfeitos.play("cadeia.wav");
 		componenteGrafico.mensagemPreso();
 		if(jogador.isPasseLivre()) {
 			int resposta = componenteGrafico.mensagemConfirmacaoUsoPasseLivre();
