@@ -101,9 +101,9 @@ public class Tabuleiro {
 		casas.add(ipanema);
 		Casa sorteReves6 = new SorteReves("SorteOuReves", 38, 38, 448, 0);
 		casas.add(sorteReves6);
-		Casa jardimPaulista = new Imovel("Jardim Paulista", 39, 39, 512, 0, 280, "Azul Escuro", 150, 24, 120, 360, 850, 1025, 1200);
+		Casa jardimPaulista = new Imovel("Brooklin", 39, 39, 512, 0, 260, "Azul Escuro", 150, 22, 110, 330, 800, 975, 1150);
 		casas.add(jardimPaulista);
-		Casa brooklin = new Imovel("Brooklin", 40, 40, 576, 0, 260, "Azul Escuro", 150, 22, 110, 330, 800, 975, 1150);
+		Casa brooklin = new Imovel("Jardim Paulista", 40, 40, 576, 0, 280, "Azul Escuro", 150, 24, 120, 360, 850, 1025, 1200);
 		casas.add(brooklin);
 		//inicializar casas
 		InicializarBaralhoSorteReves baralhoSorteReves = new InicializarBaralhoSorteReves();
