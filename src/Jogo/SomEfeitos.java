@@ -10,7 +10,7 @@ public class SomEfeitos {
 		stop();
 		musica = new Sound(URL.audio(audio));
 		SomEfeitos.musica.play();
-		SomEfeitos.musica.setRepeat(true);
+		SomEfeitos.musica.setRepeat(false);
 	}
 	
 	public static void stop() {
