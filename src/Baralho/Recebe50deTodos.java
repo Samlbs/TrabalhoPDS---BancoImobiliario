@@ -1,6 +1,7 @@
 package Baralho;
 
 import Jogador.Jogador;
+import Jogo.SomEfeitos;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
@@ -19,6 +20,7 @@ public class Recebe50deTodos extends Carta{
 				jogador.getConta().depositar(50);
 			}
 		}
+		SomEfeitos.play("receber.wav");
 		componenteGrafico.mensagemSorteRecebe50DeTodos();
 	}
 }

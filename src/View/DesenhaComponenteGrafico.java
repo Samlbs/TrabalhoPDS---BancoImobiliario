@@ -54,7 +54,7 @@ public class DesenhaComponenteGrafico {
 	public void mensagemInicial(List<Jogador> jogadores) {
 		String mensagemInicial = "";
 		for(Jogador j: jogadores) {
-			mensagemInicial = mensagemInicial + "Jogador"+j.getId()+" é a peca de cor "+j.getPecaJogador().getCor()+"\n";
+			mensagemInicial = mensagemInicial + "Jogador"+j.getId()+" eh a peca de cor "+j.getPecaJogador().getCor()+"\n";
 		}
 		JOptionPane.showMessageDialog(null, mensagemInicial, null, JOptionPane.INFORMATION_MESSAGE);
 	}
@@ -68,19 +68,19 @@ public class DesenhaComponenteGrafico {
 	}
 	
 	public int mensagemConfirmacaoCompra() {
-		int resposta = JOptionPane.showConfirmDialog(null, "Deseja comprar este Imóvel?", null, JOptionPane.YES_NO_OPTION);
+		int resposta = JOptionPane.showConfirmDialog(null, "Deseja comprar este Imovel?", null, JOptionPane.YES_NO_OPTION);
 		return resposta;
 	}
 	
 	public void mensagemPagarTaxa(double valor) {
-		JOptionPane.showMessageDialog(null, "Você terá que pagar "+valor+" de taxa", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Voce tera que pagar "+valor+" de taxa", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	public void mensagemSorteReves(String tipo, double valor) {
 		if(tipo.equals("Sorte")) {
 			JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nSORTE ganhou " + valor, null, JOptionPane.INFORMATION_MESSAGE);
 		} else {
-			JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nREVES pedeu " + valor, null, JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Sorte Ou Reves\nREVES perdeu " + valor, null, JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
@@ -97,15 +97,15 @@ public class DesenhaComponenteGrafico {
 	}
 	
 	public void mensagemPreso() {
-		JOptionPane.showMessageDialog(null, "Que pena! Você está preso!", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Que pena! Voce esta preso!", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	public void mensagemLucrosDividendos() {
-		JOptionPane.showMessageDialog(null, "Lucros e Dividendos\nParabéns! Você ganhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Lucros e Dividendos\nParabens! Voce ganhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemCadeiaVisitante() {
-		JOptionPane.showMessageDialog(null, "Relaxa! Você está só de visita na cadeia", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Relaxa! Voce esta so de visita na cadeia", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemParadaLivre() {
@@ -118,7 +118,7 @@ public class DesenhaComponenteGrafico {
 	}
 
 	public void mensagemPassouInicio() {
-		JOptionPane.showMessageDialog(null, "Você deu uma volta completa no tabuleiro\nGanhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Voce deu uma volta completa no tabuleiro\nGanhou 200.0", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mostrarSaldoJogador(double saldo) {
@@ -128,7 +128,7 @@ public class DesenhaComponenteGrafico {
 	public void mostrarTerrenos(List<TerrenoComercializavel> terrenos) {
 		String meusTerrenos = "";
 		if(terrenos.size() == 0) {
-			meusTerrenos = "Você não possui nenhum terreno!";
+			meusTerrenos = "Voce nao possui nenhum terreno!";
 		} else {
 			meusTerrenos = "Minhas Propriedades:\n";
 			for(TerrenoComercializavel terreno: terrenos) {
@@ -155,15 +155,15 @@ public class DesenhaComponenteGrafico {
 	}
 
 	public void mensagemSoltoAposQuatroRodadas() {
-		JOptionPane.showMessageDialog(null, "Você pagou 50.0 e saiu da cadeia", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Voce pagou 50.0 e saiu da cadeia", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemJogadorEhDono() {
-		JOptionPane.showMessageDialog(null, "Você ja eh o dono dessa propriedade", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Voce ja eh o dono dessa propriedade", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemFalencia() {
-		JOptionPane.showMessageDialog(null, "Voce foi a falencia e será retirado do jogo :(", null, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Voce foi a falencia e sera retirado do jogo :(", null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemVencedor(Jogador jogador) {

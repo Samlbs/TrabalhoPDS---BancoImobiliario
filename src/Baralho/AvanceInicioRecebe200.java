@@ -1,8 +1,7 @@
 package Baralho;
 
-import Casa.Casa;
 import Jogador.Jogador;
-import Repositorios.RepositorioCasas;
+import Jogo.SomEfeitos;
 import View.DesenhaComponenteGrafico;
 
 public class AvanceInicioRecebe200 extends Carta{
@@ -16,6 +15,7 @@ public class AvanceInicioRecebe200 extends Carta{
 		DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
 		jogador.setPosicaoAtual(1, 640, 0);
 		jogador.getConta().depositar(200);
+		SomEfeitos.play("receber.wav");
 		componenteGrafico.mensagemVaiInicioGanha200();
 	}
 }

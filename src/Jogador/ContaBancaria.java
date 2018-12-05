@@ -5,6 +5,7 @@ public class ContaBancaria {
 	private double saldo;
 	
 	public ContaBancaria() {
+		this.saldo = 2458;
 	}
 
 	public void depositar(double valor) {

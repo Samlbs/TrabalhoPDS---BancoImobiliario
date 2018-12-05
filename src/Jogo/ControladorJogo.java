@@ -42,6 +42,7 @@ public class ControladorJogo {
 			if(((RepositorioJogador.getInstance().getJogadores().size() - 
 					RepositorioJogador.getInstance().getJogadoresFalidos().size()) == 1)
 					&& !RepositorioJogador.getInstance().getJogadoresFalidos().contains(jogadorDaVez)) {
+				SomEfeitos.play("campeao.wav");
 				componenteGrafico.mensagemVencedor(jogadorDaVez);
 				break;
 			}
@@ -95,6 +96,7 @@ public class ControladorJogo {
 				if(contQtdDuplas == 3) {
 					jogadorDaVez.setPosicaoAtual(11, 640, 640);
 					RepositorioJogador.getInstance().addJogadorPreso(jogadorDaVez);
+					SomEfeitos.play("cadeia.wav");
 					componenteGrafico.mensagemPresoPorTresDuplas();
 					trocarJogadorDaVez();
 					contQtdDuplas = 0;
@@ -141,6 +143,7 @@ public class ControladorJogo {
 		if(posCasaMover > 40) {
 			posCasaMover = posCasaMover - 40;
 			jogadorDaVez.getConta().depositar(200);
+			SomEfeitos.play("receber.wav");
 			componenteGrafico.mensagemPassouInicio();
 		}
 		return posCasaMover;

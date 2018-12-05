@@ -1,7 +1,6 @@
 package Baralho;
 
 import Jogador.Jogador;
-import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
 
 public class SaidaLivre extends Carta{

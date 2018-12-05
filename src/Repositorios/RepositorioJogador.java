@@ -43,9 +43,7 @@ public class RepositorioJogador {
 	}
 	
 	public void adicionarJogador() {
-		ContaBancaria conta = new ContaBancaria();
-		conta.depositar(2458);
-		Jogador jogador = new Jogador(conta);
+		Jogador jogador = new Jogador(new ContaBancaria());
 		jogadores.add(jogador);
 	}
 }

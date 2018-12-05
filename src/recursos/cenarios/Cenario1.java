@@ -4,6 +4,7 @@ import java.util.List;
 
 import Dados.Dado;
 import Jogador.Jogador;
+import Jogo.Som;
 import jplay.Animation;
 import jplay.Keyboard;
 import jplay.Scene;
@@ -30,6 +31,7 @@ public class Cenario1 {
 		this.faixaJogadorDaVez = new Animation(URL.sprite("faixa1.png"));
 		this.faixaJogadorDaVez.x = 222;
 		this.faixaJogadorDaVez.y = 230;
+		Som.play("audio1.wav");
 		this.scene.draw();
 	}
 	

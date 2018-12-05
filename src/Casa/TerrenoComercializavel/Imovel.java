@@ -2,6 +2,7 @@ package Casa.TerrenoComercializavel;
 
 import javax.swing.JOptionPane;
 import Jogador.Jogador;
+import Jogo.SomEfeitos;
 import Repositorios.RepositorioCasas;
 import Repositorios.RepositorioJogador;
 import View.DesenhaComponenteGrafico;
@@ -32,17 +33,20 @@ public class Imovel extends TerrenoComercializavel {
 			int resposta = componenteGrafico.mensagemConfirmacaoCompra();
 			if(resposta == JOptionPane.YES_OPTION) {
 				jogador.comprar(this);
+				SomEfeitos.play("pagar.wav");
 			}
 		}
 		else if (!this.getProprietario().equals(jogador)) {
 			if(jogador.getSaldoBancario() > taxas[countCondominios]) {
 				jogador.getConta().sacar(taxas[countCondominios]);
+				SomEfeitos.play("pagar.wav");
 				componenteGrafico.mensagemPagarTaxa(taxas[countCondominios]);
 				this.getProprietario().getConta().depositar(taxas[countCondominios]);
 			} else {
 				RepositorioJogador.getInstance().getJogadoresFalidos().add(jogador);
 				jogador.transferirPropriedadesParaBanco();
 				jogador.getPecaJogador().hide();
+				SomEfeitos.play("falencia.wav");
 				componenteGrafico.mensagemFalencia();
 			}
 		} else {
