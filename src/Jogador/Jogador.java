@@ -5,6 +5,7 @@ import java.util.List;
 
 import Casa.TerrenoComercializavel.Imovel;
 import Casa.TerrenoComercializavel.TerrenoComercializavel;
+import Jogo.SomEfeitos;
 import View.DesenhaComponenteGrafico;
 
 public class Jogador {
@@ -35,6 +36,7 @@ public class Jogador {
 			this.getConta().sacar(terreno.getValor());
 			terreno.setProprietario(this);
 			this.propriedades.add(terreno);
+			SomEfeitos.play("pagar.wav");
 		}
 		else {
 			DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();
@@ -114,6 +116,7 @@ public class Jogador {
 		if (this.getConta().getSaldo() >= imovel.getValorCondominio()) {
 			this.getConta().sacar(imovel.getValorCondominio());
 			imovel.setCountCondominios(imovel.getCountCondominios() + 1);
+			SomEfeitos.play("pagar.wav");
 		}
 		else {
 			DesenhaComponenteGrafico componenteGrafico = new DesenhaComponenteGrafico();

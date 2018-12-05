@@ -33,7 +33,6 @@ public class Imovel extends TerrenoComercializavel {
 			int resposta = componenteGrafico.mensagemConfirmacaoCompra();
 			if(resposta == JOptionPane.YES_OPTION) {
 				jogador.comprar(this);
-				SomEfeitos.play("pagar.wav");
 			}
 		}
 		else if (!this.getProprietario().equals(jogador)) {
@@ -52,7 +51,6 @@ public class Imovel extends TerrenoComercializavel {
 		} else {
 			if(jogador.getMinhasPropriedades().containsAll(RepositorioCasas.getInstance().getListCorPorCor(this.corImovel))
 							&& this.countCondominios < 6) {
-				//colocar lógica de construir casas
 				int construir = componenteGrafico.mensagemConfirmacaoConstrucao();
 				if(construir == JOptionPane.YES_OPTION) {
 					jogador.comprarCondominio(this);

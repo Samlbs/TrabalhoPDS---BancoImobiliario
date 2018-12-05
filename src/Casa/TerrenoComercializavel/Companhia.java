@@ -26,7 +26,6 @@ public class Companhia extends TerrenoComercializavel {
 			int resposta = painel.mensagemConfirmacaoCompra();
 			if(resposta == JOptionPane.YES_OPTION) {
 				jogador.comprar(this);
-				SomEfeitos.play("pagar.wav");
 			}
 		}
 		else if (!this.getProprietario().equals(jogador)) {
